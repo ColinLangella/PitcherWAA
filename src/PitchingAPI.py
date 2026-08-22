@@ -11,8 +11,11 @@ from Utils.Retry import WithRetry
 ### https://statsapi.mlb.com/api/v1/stats?stats=season&group=pitching&sportId=1
 class SeasonPitchingAPI:
     @staticmethod
-    def GetQualifiedStarters(season: int) -> list[int]:
-        """Every MLBAM pitcher id with gamesStarted > 0 in `season` (regular season only)."""
+    def GetQualifiedStarters(season: int, min_start_ratio: float = 0.5) -> list[int]:
+        """Every MLBAM pitcher id in `season` (regular season only) with gamesStarted > 0 AND
+        gamesStarted / gamesPlayed >= min_start_ratio -- this excludes relievers who picked up a
+        spot start or two but whose primary role wasn't starting. min_start_ratio=0 disables the
+        ratio filter and keeps the old "any start counts" behavior."""
         logging.info(f"Fetching season pitching stats for season={season}")
         raw = GetOrFetch(
             file_name = f"season_{season}.json",
@@ -27,8 +30,28 @@ class SeasonPitchingAPI:
             })),
         )
         splits = raw.get("stats", [{}])[0].get("splits", [])
-        ids = [s["player"]["id"] for s in splits if s.get("stat", {}).get("gamesStarted", 0) > 0]
-        logging.info(f"season={season}: {len(splits)} pitchers total, {len(ids)} with GS > 0")
+
+        ids, excluded = [], 0
+        for s in splits:
+            stat = s.get("stat", {})
+            games_started = stat.get("gamesStarted", 0)
+            games_played  = stat.get("gamesPlayed", 0)
+            if games_started <= 0:
+                continue
+            if games_played > 0 and (games_started / games_played) < min_start_ratio:
+                excluded += 1
+                logging.debug(
+                    f"Excluding pitcher_id={s['player']['id']} season={season}: "
+                    f"gamesStarted={games_started} gamesPlayed={games_played} "
+                    f"ratio={games_started / games_played:.3f} < min_start_ratio={min_start_ratio}"
+                )
+                continue
+            ids.append(s["player"]["id"])
+
+        logging.info(
+            f"season={season}: {len(splits)} pitchers total, {len(ids)} with GS > 0 and "
+            f"start_ratio >= {min_start_ratio} ({excluded} excluded as non-primary starters)"
+        )
         return ids
 
 
@@ -106,6 +129,10 @@ if __name__ == "__main__":
 
     pitcher_ids = SeasonPitchingAPI.GetQualifiedStarters(season)
     print(f"{season}: {len(pitcher_ids)} qualified starters")
+
+    all_starters = SeasonPitchingAPI.GetQualifiedStarters(season, min_start_ratio=0.0)
+    assert len(all_starters) >= len(pitcher_ids), "raising min_start_ratio should never grow the pool"
+    print(f"{season}: {len(all_starters)} pitchers with any start (min_start_ratio=0.0)")
 
     if pitcher_ids:
         starts, excluded = PitcherGameLogAPI.GetStarts(pitcher_ids[0], season, min_outs=3)

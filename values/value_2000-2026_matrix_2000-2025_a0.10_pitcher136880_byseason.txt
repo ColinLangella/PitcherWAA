@@ -1,4 +1,4 @@
-Values eval_years=2000-2026 matrix=matrix_2000-2025_a0.10.json baseline=0.495 pitchers=14 pitcher=136880 by_season=true
+Values eval_years=2000-2026 matrix=matrix_2000-2025_a0.10.json baseline=0.495 pitchers=14 min_start_ratio=0.50 pitcher=136880 by_season=true
 Pitcher                       ID  Season  Starts    SumWP   AvgWP      WAA
 Roy Halladay              136880    2011      32   21.360   0.667   +5.521
 Roy Halladay              136880    2010      33   21.834   0.662   +5.500

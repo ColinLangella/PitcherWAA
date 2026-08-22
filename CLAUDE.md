@@ -60,6 +60,7 @@ Consumes a generated matrix file and scores pitchers against it.
 | `--team` (MLBAM id, abbreviation, or name; matched as-of each start) | all |
 | `--years` (`2023` or `2020-2025`) | current season |
 | `--by-season` (one row per pitcher-season instead of totaled) | off (totaled) |
+| `--min-start-ratio` (minimum `gamesStarted / gamesPlayed` for the default all-starters pool; `0` disables it) | `0.5` |
 | `--max-threads` (concurrent per-pitcher game-log fetches) | `8` |
 | `--log-level` (`error`/`info`/`debug`) | `info` |
 
@@ -204,7 +205,7 @@ Decided explicitly by the project owner when `CalculateValue.py` was implemented
 
 - **`CalculateValue.py` output shape:** per-pitcher totals only (no per-start rows), written as JSON (source of truth, `src/ValueIO.py`) + a rendered text table — the same JSON+text convention as the matrix, but under a separate `values/` directory, not mixed into `output/`.
 - **Filter semantics:** `--team` matches a pitcher's team as of each individual start (splits a mid-season trade correctly across both teams), not their season-end team. `--pitcher` and `--team` both accept either an MLBAM numeric id or a fuzzy name/abbreviation match, resolved via `statsapi.lookup_player`/`lookup_team` (`src/LookupAPI.py`); an ambiguous name raises an error listing every candidate.
-- **Qualification threshold:** no minimum — every pitcher with at least one start (after any `--pitcher`/`--team` filtering) is reported.
+- **Qualification threshold:** the default "all qualified starters" pool requires `gamesStarted / gamesPlayed >= --min-start-ratio` (default `0.5`), so a reliever who picked up a spot start doesn't get scored as a starter. This ratio filter only applies to that default pool — an explicit `--pitcher` is always evaluated regardless of role, and `--team` only filters starts *after* the pool is built. `--min-start-ratio 0` restores the old "any start counts" behavior. Once in the pool (or named via `--pitcher`), there is still no minimum start *count* — a pitcher with one start (that clears the ratio) is reported like any other.
 
 Decided explicitly by the project owner when `CompareCalculations.py` was implemented. Do not silently change them.
 

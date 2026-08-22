@@ -13,11 +13,12 @@ def _Slug(name: str) -> str:
 
 
 def OutputFileStem(
-    eval_years:     list[int],
-    matrix_path:    str,
-    pitcher_filter: int | None,
-    team_filter:    str | None,
-    by_season:      bool = False,
+    eval_years:      list[int],
+    matrix_path:     str,
+    pitcher_filter:  int | None,
+    team_filter:     str | None,
+    by_season:       bool = False,
+    min_start_ratio: float = 0.5,
 ) -> str:
     eval_spread = str(eval_years[0]) if len(eval_years) == 1 else f"{eval_years[0]}-{eval_years[-1]}"
     matrix_stem = os.path.splitext(os.path.basename(matrix_path))[0]
@@ -28,6 +29,8 @@ def OutputFileStem(
         stem += f"_team{_Slug(team_filter)}"
     if by_season:
         stem += "_byseason"
+    if pitcher_filter is None and min_start_ratio != 0.5:
+        stem += f"_ratio{min_start_ratio:.2f}"
     return stem
 
 
@@ -59,7 +62,8 @@ def WriteText(report: ValueReport, path: str) -> None:
 
     lines = [
         f"Values eval_years={years_spread} matrix={os.path.basename(report.matrix_path)} "
-        f"baseline={report.baseline:.3f} pitchers={len(report.pitchers)}{filter_str}"
+        f"baseline={report.baseline:.3f} pitchers={len(report.pitchers)} "
+        f"min_start_ratio={report.min_start_ratio:.2f}{filter_str}"
         + (" by_season=true" if report.by_season else "")
     ]
 
@@ -101,6 +105,15 @@ if __name__ == "__main__":
     stem = OutputFileStem([2020, 2021], "output/matrix_2024_a0.10.json", None, None, by_season=True)
     assert stem == "value_2020-2021_matrix_2024_a0.10_byseason", stem
 
+    stem = OutputFileStem([2024], "output/matrix_2024_a0.10.json", None, None, min_start_ratio=0.5)
+    assert stem == "value_2024_matrix_2024_a0.10", stem  # default ratio is not encoded in the stem
+
+    stem = OutputFileStem([2024], "output/matrix_2024_a0.10.json", None, None, min_start_ratio=0.3)
+    assert stem == "value_2024_matrix_2024_a0.10_ratio0.30", stem
+
+    stem = OutputFileStem([2024], "output/matrix_2024_a0.10.json", 543037, None, min_start_ratio=0.3)
+    assert stem == "value_2024_matrix_2024_a0.10_pitcher543037", stem  # ratio irrelevant once a pitcher is named explicitly
+
     report = ValueReport(
         eval_years   = [2024],
         matrix_path  = "output/matrix_2024_a0.10.json",
@@ -124,6 +137,7 @@ if __name__ == "__main__":
             text = f.read()
         assert "Gerrit Cole" in text
         assert text.index("Gerrit Cole") < text.index("Nobody")  # sorted by waa desc
+        assert "min_start_ratio=0.50" in text
 
         round_tripped = ReadJSON(json_path)
         assert round_tripped == report

@@ -60,13 +60,14 @@ def _FetchStarts(pitcher_ids: list[int], season: int, min_start_outs: int, max_t
 
 
 def main(
-    matrix_path:  str,
-    pitcher:      str | None,
-    team:         str | None,
-    year_spread:  str | None,
-    by_season:    bool,
-    max_threads:  int,
-    log_level:    str,
+    matrix_path:      str,
+    pitcher:          str | None,
+    team:             str | None,
+    year_spread:      str | None,
+    by_season:        bool,
+    min_start_ratio:  float,
+    max_threads:      int,
+    log_level:        str,
 ) -> None:
     logging.basicConfig(
         level  = getattr(logging, log_level),
@@ -76,7 +77,7 @@ def main(
     years = ParseYearSpread(year_spread) if year_spread else [_CurrentSeason()]
     logging.info(
         f"Evaluating years={years} against matrix={matrix_path} pitcher={pitcher} team={team} "
-        f"by_season={by_season}"
+        f"by_season={by_season} min_start_ratio={min_start_ratio}"
     )
 
     matrix = MatrixIO.ReadJSON(matrix_path)
@@ -102,7 +103,7 @@ def main(
         if pitcher_id is not None:
             pitcher_ids = [pitcher_id]
         else:
-            pitcher_ids = SeasonPitchingAPI.GetQualifiedStarters(season)
+            pitcher_ids = SeasonPitchingAPI.GetQualifiedStarters(season, min_start_ratio)
         logging.info(f"season={season}: evaluating {len(pitcher_ids)} pitcher(s)")
         all_starts.extend(_FetchStarts(pitcher_ids, season, matrix.min_start_outs, max_threads))
 
@@ -145,18 +146,19 @@ def main(
     logging.info(f"Scored {len(pitchers)} pitcher(s)")
 
     report = ValueReport(
-        eval_years     = years,
-        matrix_path    = matrix_path,
-        matrix_years   = matrix.years,
-        matrix_alpha   = matrix.alpha,
-        baseline       = matrix.baseline,
-        pitchers       = pitchers,
-        pitcher_filter = pitcher_id,
-        team_filter    = team_name,
-        by_season      = by_season,
+        eval_years      = years,
+        matrix_path     = matrix_path,
+        matrix_years    = matrix.years,
+        matrix_alpha    = matrix.alpha,
+        baseline        = matrix.baseline,
+        pitchers        = pitchers,
+        pitcher_filter  = pitcher_id,
+        team_filter     = team_name,
+        by_season       = by_season,
+        min_start_ratio = min_start_ratio,
     )
 
-    stem = ValueIO.OutputFileStem(years, matrix_path, pitcher_id, team_name, by_season)
+    stem = ValueIO.OutputFileStem(years, matrix_path, pitcher_id, team_name, by_season, min_start_ratio)
     os.makedirs(ValueIO.OUTPUT_DIR, exist_ok=True)
     json_path = os.path.join(ValueIO.OUTPUT_DIR, f"{stem}.json")
     text_path = os.path.join(ValueIO.OUTPUT_DIR, f"{stem}.txt")
@@ -179,6 +181,14 @@ if __name__ == "__main__":
              "the full --years span (default: totaled).",
     )
     parser.add_argument(
+        "--min-start-ratio", type=float, default=0.5,
+        help="Minimum gamesStarted/gamesPlayed ratio for a pitcher to be included in the default "
+             "'all qualified starters' pool (default 0.5, i.e. at least half their appearances "
+             "must be starts). Ignored when --pitcher is given -- an explicitly named pitcher is "
+             "always evaluated regardless of role. 0 disables the filter (any start counts, the "
+             "old behavior).",
+    )
+    parser.add_argument(
         "--max-threads", type=int, default=8,
         help="Max concurrent threads fetching per-pitcher game logs within a season (default 8).",
     )
@@ -194,5 +204,10 @@ if __name__ == "__main__":
 
     if args.max_threads < 1:
         parser.error("--max-threads must be at least 1")
+    if not (0.0 <= args.min_start_ratio <= 1.0):
+        parser.error("--min-start-ratio must be between 0 and 1")
 
-    main(args.matrix_file, args.pitcher, args.team, args.years, args.by_season, args.max_threads, args.log_level)
+    main(
+        args.matrix_file, args.pitcher, args.team, args.years, args.by_season,
+        args.min_start_ratio, args.max_threads, args.log_level,
+    )

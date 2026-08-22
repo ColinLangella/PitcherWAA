@@ -18,7 +18,11 @@ diff it against a freshly built default-settings matrix for the same years.
 
 ## Values (`values/`)
 
-All four evaluate against `output/matrix_2000-2025_a0.10.json`.
+All four evaluate against `output/matrix_2000-2025_a0.10.json`, using
+`CalculateValue.py`'s default `--min-start-ratio 0.5` -- the three without an
+explicit `--pitcher` only include pitchers whose `gamesStarted / gamesPlayed`
+ratio for the season is at least 0.5, so relief pitchers with an occasional
+spot start are excluded from the pool.
 
 | File | Command |
 |---|---|
