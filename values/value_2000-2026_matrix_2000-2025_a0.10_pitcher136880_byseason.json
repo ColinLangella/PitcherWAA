@@ -1,0 +1,193 @@
+{
+  "eval_years": [
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "matrix_path": "output/matrix_2000-2025_a0.10.json",
+  "matrix_years": [
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "matrix_alpha": 0.1,
+  "baseline": 0.4949703085958882,
+  "pitchers": [
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 13,
+      "sum_wp": 2.6405896222930068,
+      "avg_wp": 0.2031222786379236,
+      "waa": -3.79402438945354,
+      "season": 2000
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 16,
+      "sum_wp": 9.585527540490439,
+      "avg_wp": 0.5990954712806524,
+      "waa": 1.6660026029562303,
+      "season": 2001
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 34,
+      "sum_wp": 20.956692906745033,
+      "avg_wp": 0.6163733207866187,
+      "waa": 4.127702414484837,
+      "season": 2002
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 36,
+      "sum_wp": 21.401279478030407,
+      "avg_wp": 0.5944799855008447,
+      "waa": 3.5823483685784354,
+      "season": 2003
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 21,
+      "sum_wp": 10.39665233320696,
+      "avg_wp": 0.49507868253366477,
+      "waa": 0.002275852693307767,
+      "season": 2004
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 19,
+      "sum_wp": 12.709086815117484,
+      "avg_wp": 0.668899306058815,
+      "waa": 3.3046509517956095,
+      "season": 2005
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 32,
+      "sum_wp": 18.637258492546678,
+      "avg_wp": 0.5824143278920837,
+      "waa": 2.7982086174782603,
+      "season": 2006
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 31,
+      "sum_wp": 17.52780071408139,
+      "avg_wp": 0.5654129262606901,
+      "waa": 2.1837211476088574,
+      "season": 2007
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 33,
+      "sum_wp": 20.670198829030014,
+      "avg_wp": 0.626369661485758,
+      "waa": 4.3361786453657,
+      "season": 2008
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 32,
+      "sum_wp": 20.2439304156801,
+      "avg_wp": 0.6326228254900031,
+      "waa": 4.40488054061168,
+      "season": 2009
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 33,
+      "sum_wp": 21.83413021493337,
+      "avg_wp": 0.6616403095434354,
+      "waa": 5.500110031269056,
+      "season": 2010
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 32,
+      "sum_wp": 21.35993681932185,
+      "avg_wp": 0.6674980256038078,
+      "waa": 5.52088694425343,
+      "season": 2011
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 25,
+      "sum_wp": 12.229820220634513,
+      "avg_wp": 0.4891928088253805,
+      "waa": -0.1444374942626913,
+      "season": 2012
+    },
+    {
+      "pitcher_id": 136880,
+      "pitcher_name": "Roy Halladay",
+      "starts": 13,
+      "sum_wp": 5.38684834045201,
+      "avg_wp": 0.41437294926553925,
+      "waa": -1.0477656712945356,
+      "season": 2013
+    }
+  ],
+  "pitcher_filter": 136880,
+  "team_filter": null,
+  "by_season": true
+}

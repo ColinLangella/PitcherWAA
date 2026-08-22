@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Raw MLB/Baseball-Reference API cache (regenerated automatically, keyed by
+# season/pitcher id -- see src/Cache/Cache.py). Cache.py itself is source.
+src/Cache/*.json
+src/Cache/*.tmp-*
+
+# Generated pipeline outputs -- regenerate via CalculateMatrix.py /
+# CalculateValue.py / CompareCalculations.py. A handful of example outputs
+# are force-added (`git add -f`) despite this pattern; see PUBLISHING.md.
+output/
+reports/
+values/
+
+# Debug run logs (saved-logs/ itself is a human-only debugging artifact,
+# not read by any script)
+saved-logs/*.log
+
+# Local-only Claude Code settings and session notes
+.claude/settings.local.json
+SESSION.md
+
+# Local publishing runbook -- not meant to live in the published repo itself
+PUBLISHING.md
+
+# OS cruft
+.DS_Store

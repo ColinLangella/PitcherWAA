@@ -1,0 +1,16 @@
+Values eval_years=2000-2026 matrix=matrix_2000-2025_a0.10.json baseline=0.495 pitchers=14 pitcher=136880 by_season=true
+Pitcher                       ID  Season  Starts    SumWP   AvgWP      WAA
+Roy Halladay              136880    2011      32   21.360   0.667   +5.521
+Roy Halladay              136880    2010      33   21.834   0.662   +5.500
+Roy Halladay              136880    2009      32   20.244   0.633   +4.405
+Roy Halladay              136880    2008      33   20.670   0.626   +4.336
+Roy Halladay              136880    2002      34   20.957   0.616   +4.128
+Roy Halladay              136880    2003      36   21.401   0.594   +3.582
+Roy Halladay              136880    2005      19   12.709   0.669   +3.305
+Roy Halladay              136880    2006      32   18.637   0.582   +2.798
+Roy Halladay              136880    2007      31   17.528   0.565   +2.184
+Roy Halladay              136880    2001      16    9.586   0.599   +1.666
+Roy Halladay              136880    2004      21   10.397   0.495   +0.002
+Roy Halladay              136880    2012      25   12.230   0.489   -0.144
+Roy Halladay              136880    2013      13    5.387   0.414   -1.048
+Roy Halladay              136880    2000      13    2.641   0.203   -3.794
