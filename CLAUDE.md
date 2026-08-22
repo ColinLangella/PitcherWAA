@@ -163,6 +163,21 @@ Inherited from `~/code/baseball/main` (see its `CLAUDE.md` for the full set). Th
 - `### https://...` comments above API classes linking the relevant MLB endpoint.
 - Casing is per-file and consistent within a file; PascalCase function names are normal in this codebase (`GetFile`, `GetActiveGames`).
 
+## Git Workflow
+
+`master` has GitHub branch protection requiring every change to land through
+a pull request, enforced even for the repo admin — a direct push to `master`
+will be rejected. For any non-trivial change:
+
+1. Create a branch (`feat/<short-description>` or `fix/<short-description>`).
+2. Commit there, following this file's commit-message conventions.
+3. Push the branch and open a PR with `gh pr create` (summary + test plan).
+4. Report the PR URL back and stop. **Never merge or approve a PR yourself**
+   — the project owner reviews the diff and merges it themselves.
+
+Because `master` requires a PR either way, there's no "small enough to skip
+this" exception — even a one-line fix needs a branch + PR to land.
+
 ## Data Gotchas
 
 - Total starts in 2024 came to 4,858, not the expected 4,860 (2,430 games × 2). Small discrepancies are normal — don't treat a count mismatch as a bug without investigating the specific games.
