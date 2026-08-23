@@ -5,6 +5,10 @@ pipeline output, not hand-written fixtures. This documents the exact command
 that produced each one, so they can be regenerated or extended consistently.
 Update this file whenever an example is added, replaced, or removed.
 
+`./regenerate_examples.sh` runs every command below, in order, from a single
+script -- use it instead of copy-pasting commands one at a time. Keep it and
+this file in lockstep if either changes.
+
 ## Matrices (`output/`)
 
 | File | Command |
@@ -18,7 +22,14 @@ diff it against a freshly built default-settings matrix for the same years.
 
 ## Values (`values/`)
 
-All four evaluate against `output/matrix_2000-2025_a0.10.json`.
+All four evaluate against `output/matrix_2000-2025_a0.10.json`, using
+`CalculateValue.py`'s default `--min-start-ratio 0.5` -- the three without an
+explicit `--pitcher` only include pitchers whose `gamesStarted / gamesPlayed`
+ratio clears 0.5, so relief pitchers with an occasional spot start are
+excluded from the pool. The two multi-year pooled files (`2000-2026`,
+`1950-2026`) qualify on that ratio *aggregated across the whole span*, not
+season by season -- see CLAUDE.md's "Ratio window matches the report's
+grouping".
 
 | File | Command |
 |---|---|

@@ -9,9 +9,9 @@
 
 ![WAA vs bWAR](scatter_bwar.png)
 
-- n = 4602 (excluded 0: no bWAR match)
-- Pearson r = 0.845, R² = 0.715
-- Best fit: WAA = 0.608 × bWAR - 1.597
+- n = 1917 (excluded 0: no bWAR match)
+- Pearson r = 0.879, R² = 0.772
+- Best fit: WAA = 0.672 × bWAR - 1.857
 
 ### Top/bottom 5 by WAA
 
@@ -31,9 +31,9 @@
 |---|---|---|---|
 | Scott Elarton | - | -12.556 | +2.92 |
 | Jordan Lyles | - | -11.907 | -2.17 |
-| Darren Oliver | - | -10.956 | +21.15 |
 | Jose Lima | - | -10.813 | +6.21 |
 | Jimmy Haynes | - | -10.499 | +2.84 |
+| Bobby Witt | - | -9.630 | +14.67 |
 
 ### Top/bottom 5 by bWAR
 
@@ -51,23 +51,23 @@
 
 | Pitcher | Season | WAA | bWAR |
 |---|---|---|---|
-| Jerry Stephenson | - | -2.318 | -4.65 |
 | Kevin Jarvis | - | -8.906 | -4.60 |
-| Mike Kekich | - | -1.481 | -4.37 |
-| Brian Williams | - | -3.715 | -4.25 |
-| Dan McGinn | - | -1.890 | -3.93 |
+| John Van Benschoten | - | -3.151 | -3.73 |
+| Jo-Jo Reyes | - | -4.893 | -3.71 |
+| Randy Lerch | - | -2.600 | -3.69 |
+| Wade Blasingame | - | -1.237 | -3.32 |
 
 ### Largest disagreements (by fit residual)
 
 | Pitcher | Season | WAA | bWAR | Residual |
 |---|---|---|---|---|
-| Jim Palmer | - | +77.867 | +67.57 | +38.404 |
-| Nolan Ryan Jr. | - | +85.993 | +83.60 | +36.789 |
-| Gaylord Perry | - | +91.476 | +93.03 | +36.541 |
-| Warren Spahn | - | +77.434 | +72.11 | +35.212 |
-| Don Sutton | - | +74.781 | +68.29 | +34.880 |
-| Mariano Rivera | - | -0.768 | +56.27 | -33.365 |
-| Juan Marichal | - | +69.085 | +61.78 | +33.140 |
-| Whitey Ford | - | +63.197 | +53.58 | +32.235 |
-| Steve Carlton | - | +81.732 | +84.11 | +32.218 |
-| Catfish Hunter | - | +52.000 | +36.30 | +31.538 |
+| Jim Palmer | - | +77.867 | +67.57 | +34.321 |
+| Nolan Ryan Jr. | - | +85.993 | +83.60 | +31.675 |
+| Warren Spahn | - | +77.434 | +72.11 | +30.837 |
+| Gaylord Perry | - | +91.476 | +93.03 | +30.822 |
+| Don Sutton | - | +74.781 | +68.29 | +30.751 |
+| Kenny Rogers | - | +1.923 | +50.53 | -30.173 |
+| Catfish Hunter | - | +52.000 | +36.30 | +29.465 |
+| Juan Marichal | - | +69.085 | +61.78 | +29.429 |
+| Whitey Ford | - | +63.197 | +53.58 | +29.051 |
+| Steve Carlton | - | +81.732 | +84.11 | +27.071 |

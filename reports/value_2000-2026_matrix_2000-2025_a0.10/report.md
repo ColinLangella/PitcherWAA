@@ -9,9 +9,9 @@
 
 ![WAA vs bWAR](scatter_bwar.png)
 
-- n = 2305 (excluded 0: no bWAR match)
-- Pearson r = 0.840, R² = 0.705
-- Best fit: WAA = 0.445 × bWAR - 1.577
+- n = 1027 (excluded 0: no bWAR match)
+- Pearson r = 0.882, R² = 0.779
+- Best fit: WAA = 0.495 × bWAR - 2.101
 
 ### Top/bottom 5 by WAA
 
@@ -53,21 +53,21 @@
 |---|---|---|---|
 | John Van Benschoten | - | -3.151 | -3.73 |
 | Jo-Jo Reyes | - | -4.893 | -3.71 |
-| Hayden Penn | - | -2.673 | -3.41 |
-| Brandon Maurer | - | -2.534 | -3.40 |
-| Esmil Rogers | - | -2.328 | -3.34 |
+| Ruben Quevedo | - | -3.561 | -3.20 |
+| Dewon Brazelton | - | -4.334 | -3.14 |
+| Scott Erickson | - | -6.377 | -2.99 |
 
 ### Largest disagreements (by fit residual)
 
 | Pitcher | Season | WAA | bWAR | Residual |
 |---|---|---|---|---|
-| Clayton Kershaw | - | +58.178 | +78.13 | +25.023 |
-| Jacob deGrom | - | +32.792 | +47.44 | +13.280 |
-| Darren Oliver | - | -9.095 | +11.07 | -12.439 |
-| Kyle Freeland | - | -5.357 | +19.10 | -12.271 |
-| Joaquín Benoit | - | -5.752 | +17.97 | -12.163 |
-| Tim Wakefield | - | -3.316 | +22.80 | -11.875 |
-| Adam Wainwright | - | +28.106 | +41.00 | +11.457 |
-| Scott Elarton | - | -12.480 | -0.30 | -10.769 |
-| Félix Hernández | - | +31.298 | +49.93 | +10.680 |
-| Kenny Rogers | - | -1.461 | +23.75 | -10.442 |
+| Clayton Kershaw | - | +58.178 | +78.13 | +21.567 |
+| Kyle Freeland | - | -5.357 | +19.10 | -12.720 |
+| Tim Wakefield | - | -3.316 | +22.80 | -12.512 |
+| Jacob deGrom | - | +32.792 | +47.44 | +11.388 |
+| Kenny Rogers | - | -1.461 | +23.75 | -11.127 |
+| Scott Elarton | - | -12.480 | -0.30 | -10.230 |
+| Javier Vazquez | - | +9.807 | +44.54 | -10.161 |
+| Adam Wainwright | - | +28.106 | +41.00 | +9.892 |
+| Sidney Ponson | - | -7.688 | +8.53 | -9.813 |
+| Jose Lima | - | -12.474 | -1.63 | -9.565 |

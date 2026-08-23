@@ -1,3 +1,4 @@
+import collections
 import logging
 
 import statsapi as mlb
@@ -11,8 +12,9 @@ from Utils.Retry import WithRetry
 ### https://statsapi.mlb.com/api/v1/stats?stats=season&group=pitching&sportId=1
 class SeasonPitchingAPI:
     @staticmethod
-    def GetQualifiedStarters(season: int) -> list[int]:
-        """Every MLBAM pitcher id with gamesStarted > 0 in `season` (regular season only)."""
+    def _GetSeasonStats(season: int) -> dict[int, tuple[int, int]]:
+        """Returns {pitcher_id: (gamesStarted, gamesPlayed)} for every pitcher who appeared in
+        `season` (regular season only), straight off the cached season-stats response."""
         logging.info(f"Fetching season pitching stats for season={season}")
         raw = GetOrFetch(
             file_name = f"season_{season}.json",
@@ -27,9 +29,73 @@ class SeasonPitchingAPI:
             })),
         )
         splits = raw.get("stats", [{}])[0].get("splits", [])
-        ids = [s["player"]["id"] for s in splits if s.get("stat", {}).get("gamesStarted", 0) > 0]
-        logging.info(f"season={season}: {len(splits)} pitchers total, {len(ids)} with GS > 0")
+        return {
+            s["player"]["id"]: (s.get("stat", {}).get("gamesStarted", 0), s.get("stat", {}).get("gamesPlayed", 0))
+            for s in splits
+        }
+
+    @staticmethod
+    def GetQualifiedStarters(season: int, min_start_ratio: float = 0.5) -> list[int]:
+        """Every MLBAM pitcher id in `season` (regular season only) with gamesStarted > 0 AND
+        gamesStarted / gamesPlayed >= min_start_ratio, both computed from that single season alone
+        -- this excludes relievers who picked up a spot start or two but whose primary role wasn't
+        starting. min_start_ratio=0 disables the ratio filter and keeps the old "any start counts"
+        behavior. Appropriate for a single-season evaluation or a --by-season report, where each
+        season is scored independently; a pooled multi-season report should use
+        GetQualifiedStartersAcrossSeasons instead, so a pitcher's role is judged over the whole
+        span rather than by whichever one season they happened to clear the ratio in."""
+        stats = SeasonPitchingAPI._GetSeasonStats(season)
+
+        ids, excluded = [], 0
+        for pid, (games_started, games_played) in stats.items():
+            if games_started <= 0:
+                continue
+            if games_played > 0 and (games_started / games_played) < min_start_ratio:
+                excluded += 1
+                logging.debug(
+                    f"Excluding pitcher_id={pid} season={season}: "
+                    f"gamesStarted={games_started} gamesPlayed={games_played} "
+                    f"ratio={games_started / games_played:.3f} < min_start_ratio={min_start_ratio}"
+                )
+                continue
+            ids.append(pid)
+
+        logging.info(
+            f"season={season}: {len(stats)} pitchers total, {len(ids)} with GS > 0 and "
+            f"start_ratio >= {min_start_ratio} ({excluded} excluded as non-primary starters)"
+        )
         return ids
+
+    @staticmethod
+    def GetQualifiedStartersAcrossSeasons(seasons: list[int], min_start_ratio: float = 0.5) -> dict[int, list[int]]:
+        """Qualifies pitchers by their aggregate gamesStarted/gamesPlayed ratio summed across every
+        season in `seasons`, not by any single season in isolation -- this is the pool a pooled
+        (non-by-season) multi-year CalculateValue.py report should use, so a career reliever who
+        had one qualifying rookie season (e.g. Mariano Rivera going 10 GS / 19 GP in 1995) isn't
+        included on the strength of that one season while every start counted against their bWAR
+        comes from relief years. Returns, for each season, the subset of that season's actual
+        roster which clears the *aggregate* ratio -- callers still fetch one season's game logs at
+        a time, just against this narrower per-season list."""
+        per_season: dict[int, dict[int, tuple[int, int]]] = {season: SeasonPitchingAPI._GetSeasonStats(season) for season in seasons}
+
+        totals: dict[int, list[int]] = collections.defaultdict(lambda: [0, 0])
+        for stats in per_season.values():
+            for pid, (games_started, games_played) in stats.items():
+                totals[pid][0] += games_started
+                totals[pid][1] += games_played
+
+        qualified = {
+            pid for pid, (games_started, games_played) in totals.items()
+            if games_started > 0 and (games_played == 0 or games_started / games_played >= min_start_ratio)
+        }
+
+        logging.info(
+            f"seasons={seasons}: {len(totals)} pitchers total, {len(qualified)} with aggregate "
+            f"GS > 0 and start_ratio >= {min_start_ratio} ({len(totals) - len(qualified)} excluded "
+            f"as non-primary starters over the full span)"
+        )
+
+        return {season: [pid for pid in stats if pid in qualified] for season, stats in per_season.items()}
 
 
 ### https://statsapi.mlb.com/api/v1/people?hydrate=stats(group=[pitching],type=[gameLog],...)
@@ -106,6 +172,22 @@ if __name__ == "__main__":
 
     pitcher_ids = SeasonPitchingAPI.GetQualifiedStarters(season)
     print(f"{season}: {len(pitcher_ids)} qualified starters")
+
+    all_starters = SeasonPitchingAPI.GetQualifiedStarters(season, min_start_ratio=0.0)
+    assert len(all_starters) >= len(pitcher_ids), "raising min_start_ratio should never grow the pool"
+    print(f"{season}: {len(all_starters)} pitchers with any start (min_start_ratio=0.0)")
+
+    # Mariano Rivera (121250) went 10 GS / 19 GP as a rookie in 1995 (ratio 0.526, clears 0.5
+    # per season alone) but started 0 of 61 games in 1996 -- a career reliever whose one qualifying
+    # season shouldn't earn him a spot in a pooled multi-season starter pool.
+    rivera_id = 121250
+    assert rivera_id in SeasonPitchingAPI.GetQualifiedStarters(1995, min_start_ratio=0.5)
+    assert rivera_id not in SeasonPitchingAPI.GetQualifiedStarters(1996, min_start_ratio=0.5)
+
+    pooled = SeasonPitchingAPI.GetQualifiedStartersAcrossSeasons([1995, 1996], min_start_ratio=0.5)
+    assert rivera_id not in pooled[1995], "aggregate ratio across 1995-1996 should exclude Rivera"
+    assert rivera_id not in pooled[1996]
+    print("Mariano Rivera correctly excluded from the 1995-1996 pooled starter pool")
 
     if pitcher_ids:
         starts, excluded = PitcherGameLogAPI.GetStarts(pitcher_ids[0], season, min_outs=3)

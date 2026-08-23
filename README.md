@@ -111,6 +111,10 @@ python src/CalculateValue.py output/matrix_2020-2025_a0.10.json --years 2026
 # Split a multi-year span into one row per pitcher-season instead of one totaled row
 python src/CalculateValue.py output/matrix_2020-2025_a0.10.json --pitcher "Gerrit Cole" --years 2020-2025 --by-season
 
+# Loosen or disable the starter-role filter (default 0.5) for the default all-pitchers pool
+python src/CalculateValue.py output/matrix_2024_a0.10.json --min-start-ratio 0.3
+python src/CalculateValue.py output/matrix_2024_a0.10.json --min-start-ratio 0
+
 # Control concurrent per-pitcher fetches (default 8) and logging verbosity (default info)
 python src/CalculateValue.py output/matrix_2024_a0.10.json --max-threads 16 --log-level debug
 ```
@@ -121,8 +125,27 @@ raises an error listing every candidate. Name resolution for `--pitcher` is
 tried against each evaluated season, most recent first, so a pitcher who
 didn't appear at all in the last `--years` season (e.g. hurt the whole year)
 still resolves via an earlier season's roster snapshot. With no
-`--pitcher`/`--team`, every pitcher with at least one qualifying start is
-reported -- no minimum start count is applied. `--years` defaults to the
+`--pitcher`/`--team`, the default pool is every pitcher whose
+`gamesStarted / gamesPlayed` ratio is at least `--min-start-ratio` (default
+`0.5`) -- this keeps relievers who make an occasional spot start out of a
+report meant to score starters. Pass `--min-start-ratio 0` to restore the
+old "any start counts" behavior. This filter is skipped entirely when
+`--pitcher` is given -- an explicitly named pitcher is always evaluated
+regardless of role. Once a pitcher is in the pool (or named explicitly),
+there's still no minimum start *count* applied.
+
+The ratio window matches how the report groups starts: a `--by-season`
+report qualifies each season on its own (each season is scored
+independently anyway), but a pooled multi-year report qualifies on the
+pitcher's *aggregate* ratio summed across the whole `--years` span --
+otherwise a career reliever with one qualifying rookie season (e.g. Mariano
+Rivera going 10 GS / 19 GP in 1995) would land in a career-span report on
+that one season's strength, while every start counted against their bWAR
+comes from relief years. `CalculateMatrix.py` is unaffected either way -- it
+always fetches every pitcher who started a game that season, since the
+matrix buckets every start in the league regardless of who threw it.
+
+`--years` defaults to the
 actual current season (unlike `CalculateMatrix.py`'s default of the most
 recent *complete* season), and accepts the same `2024` / `2020-2025` spread
 syntax. `--log-level` has the same `error`/`info`/`debug` semantics as

@@ -14,15 +14,16 @@ class PitcherValue:
 
 @dataclasses.dataclass
 class ValueReport:
-    eval_years:     list[int]
-    matrix_path:    str
-    matrix_years:   list[int]
-    matrix_alpha:   float
-    baseline:       float
-    pitchers:       list[PitcherValue]
-    pitcher_filter: int | None = None
-    team_filter:    str | None = None
-    by_season:      bool = False
+    eval_years:      list[int]
+    matrix_path:     str
+    matrix_years:    list[int]
+    matrix_alpha:    float
+    baseline:        float
+    pitchers:        list[PitcherValue]
+    pitcher_filter:  int | None = None
+    team_filter:     str | None = None
+    by_season:       bool = False
+    min_start_ratio: float = 0.5   # gamesStarted/gamesPlayed cutoff used to build the default starter pool; irrelevant when pitcher_filter is set
 
 
 if __name__ == "__main__":
