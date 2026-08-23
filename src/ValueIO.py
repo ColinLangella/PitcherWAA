@@ -19,6 +19,7 @@ def OutputFileStem(
     team_filter:     str | None,
     by_season:       bool = False,
     min_start_ratio: float = 0.5,
+    metric:          str = "waa",
 ) -> str:
     eval_spread = str(eval_years[0]) if len(eval_years) == 1 else f"{eval_years[0]}-{eval_years[-1]}"
     matrix_stem = os.path.splitext(os.path.basename(matrix_path))[0]
@@ -31,6 +32,8 @@ def OutputFileStem(
         stem += "_byseason"
     if pitcher_filter is None and min_start_ratio != 0.5:
         stem += f"_ratio{min_start_ratio:.2f}"
+    if metric != "waa":
+        stem += f"_{metric}"
     return stem
 
 
@@ -52,6 +55,7 @@ def ReadJSON(path: str) -> ValueReport:
 
 def WriteText(report: ValueReport, path: str) -> None:
     years_spread = f"{report.eval_years[0]}-{report.eval_years[-1]}"
+    is_war = report.metric == "war"
 
     filters = []
     if report.pitcher_filter is not None:
@@ -60,30 +64,35 @@ def WriteText(report: ValueReport, path: str) -> None:
         filters.append(f"team={report.team_filter}")
     filter_str = (" " + " ".join(filters)) if filters else ""
 
+    replacement_str = f" replacement_baseline={report.replacement_baseline:.3f}" if is_war else ""
+
     lines = [
         f"Values eval_years={years_spread} matrix={os.path.basename(report.matrix_path)} "
-        f"baseline={report.baseline:.3f} pitchers={len(report.pitchers)} "
-        f"min_start_ratio={report.min_start_ratio:.2f}{filter_str}"
+        f"baseline={report.baseline:.3f}{replacement_str} pitchers={len(report.pitchers)} "
+        f"min_start_ratio={report.min_start_ratio:.2f} metric={report.metric}{filter_str}"
         + (" by_season=true" if report.by_season else "")
     ]
 
-    rows = sorted(report.pitchers, key=lambda p: p.waa, reverse=True)
+    sort_key = (lambda p: p.war) if is_war else (lambda p: p.waa)
+    rows = sorted(report.pitchers, key=sort_key, reverse=True)
 
+    war_header = f"  {'WAR':>7}" if is_war else ""
     if report.by_season:
-        lines.append(f"{'Pitcher':<24}{'ID':>8}  {'Season':>6}  {'Starts':>6}  {'SumWP':>7}  {'AvgWP':>6}  {'WAA':>7}")
+        lines.append(f"{'Pitcher':<24}{'ID':>8}  {'Season':>6}  {'Starts':>6}  {'SumWP':>7}  {'AvgWP':>6}  {'WAA':>7}{war_header}")
     else:
-        lines.append(f"{'Pitcher':<24}{'ID':>8}  {'Starts':>6}  {'SumWP':>7}  {'AvgWP':>6}  {'WAA':>7}")
+        lines.append(f"{'Pitcher':<24}{'ID':>8}  {'Starts':>6}  {'SumWP':>7}  {'AvgWP':>6}  {'WAA':>7}{war_header}")
 
     for pv in rows:
+        war_col = f"  {pv.war:>+7.3f}" if is_war else ""
         if report.by_season:
             lines.append(
                 f"{pv.pitcher_name:<24}{pv.pitcher_id:>8}  {pv.season:>6}  {pv.starts:>6}  "
-                f"{pv.sum_wp:>7.3f}  {pv.avg_wp:>6.3f}  {pv.waa:>+7.3f}"
+                f"{pv.sum_wp:>7.3f}  {pv.avg_wp:>6.3f}  {pv.waa:>+7.3f}{war_col}"
             )
         else:
             lines.append(
                 f"{pv.pitcher_name:<24}{pv.pitcher_id:>8}  {pv.starts:>6}  "
-                f"{pv.sum_wp:>7.3f}  {pv.avg_wp:>6.3f}  {pv.waa:>+7.3f}"
+                f"{pv.sum_wp:>7.3f}  {pv.avg_wp:>6.3f}  {pv.waa:>+7.3f}{war_col}"
             )
 
     with open(path, "w") as f:
@@ -113,6 +122,12 @@ if __name__ == "__main__":
 
     stem = OutputFileStem([2024], "output/matrix_2024_a0.10.json", 543037, None, min_start_ratio=0.3)
     assert stem == "value_2024_matrix_2024_a0.10_pitcher543037", stem  # ratio irrelevant once a pitcher is named explicitly
+
+    stem = OutputFileStem([2024], "output/matrix_2024_a0.10.json", None, None, metric="war")
+    assert stem == "value_2024_matrix_2024_a0.10_war", stem
+
+    stem = OutputFileStem([2024], "output/matrix_2024_a0.10.json", None, None, metric="waa")
+    assert stem == "value_2024_matrix_2024_a0.10", stem  # default metric is not encoded in the stem
 
     report = ValueReport(
         eval_years   = [2024],
@@ -171,5 +186,35 @@ if __name__ == "__main__":
         # always sorted by waa desc, even when by_season -- 2021 (waa=0.3) precedes 2020 (waa=0.2)
         rows_text = text.split("\n", 2)[2]  # skip the two header lines
         assert rows_text.index("2021") < rows_text.index("2020")
+
+    war_report = ValueReport(
+        eval_years           = [2024],
+        matrix_path          = "output/matrix_2024_a0.10.json",
+        matrix_years         = [2024],
+        matrix_alpha         = 0.1,
+        baseline             = 0.488,
+        metric               = "war",
+        replacement_baseline = 0.401,
+        pitchers             = [
+            PitcherValue(pitcher_id=1, pitcher_name="Low WAA High WAR", starts=32, sum_wp=16.0, avg_wp=0.5, waa=0.384, war=3.168),
+            PitcherValue(pitcher_id=2, pitcher_name="High WAA Low WAR", starts=5,  sum_wp=3.5,  avg_wp=0.7, waa=1.06,  war=1.495),
+        ],
+    )
+    with tempfile.TemporaryDirectory() as tmp:
+        json_path = os.path.join(tmp, "report.json")
+        text_path = os.path.join(tmp, "report.txt")
+        WriteJSON(war_report, json_path)
+        WriteText(war_report, text_path)
+        with open(text_path) as f:
+            text = f.read()
+        assert "WAR" in text
+        assert "replacement_baseline=0.401" in text
+        assert "metric=war" in text
+        # sorted by war desc, not waa desc -- "Low WAA High WAR" (war=3.168) precedes "High WAA Low WAR" (war=1.495)
+        assert text.index("Low WAA High WAR") < text.index("High WAA Low WAR")
+
+        round_tripped = ReadJSON(json_path)
+        assert round_tripped == war_report
+        assert round_tripped.pitchers[0].war == 3.168
 
     print("ValueIO self-checks passed.")

@@ -15,11 +15,13 @@ python src/CalculateValue.py output/matrix_2000-2025_a0.10.json
 python src/CalculateValue.py output/matrix_2000-2025_a0.10.json --years 2000-2026
 python src/CalculateValue.py output/matrix_2000-2025_a0.10.json --years 1950-2026
 python src/CalculateValue.py output/matrix_2000-2025_a0.10.json --pitcher 136880 --years 2000-2026 --by-season
+python src/CalculateValue.py output/matrix_2000-2025_a0.10.json --metric war
 
 echo "== Reports (reports/) =="
 python src/CompareCalculations.py values/value_2026_matrix_2000-2025_a0.10.json
 python src/CompareCalculations.py values/value_2000-2026_matrix_2000-2025_a0.10.json
 python src/CompareCalculations.py values/value_1950-2026_matrix_2000-2025_a0.10.json
 python src/CompareCalculations.py values/value_2000-2026_matrix_2000-2025_a0.10_pitcher136880_byseason.json
+python src/CompareCalculations.py values/value_2026_matrix_2000-2025_a0.10_war.json
 
 echo "All examples regenerated."

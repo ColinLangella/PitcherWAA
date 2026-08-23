@@ -1,4 +1,4 @@
-Values eval_years=1950-2026 matrix=matrix_2000-2025_a0.10.json baseline=0.495 pitchers=1917 min_start_ratio=0.50
+Values eval_years=1950-2026 matrix=matrix_2000-2025_a0.10.json baseline=0.495 pitchers=1917 min_start_ratio=0.50 metric=waa
 Pitcher                       ID  Starts    SumWP   AvgWP      WAA
 Tom Seaver                121961     647  412.287   0.637  +92.041
 Gaylord Perry             120438     690  433.005   0.628  +91.476

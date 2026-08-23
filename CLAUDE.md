@@ -24,6 +24,8 @@ WAA = SUM over their starts of ( WP(bucket of start) - baseline )
 
 where `baseline` is the mean win probability across every start in the matrix year(s) — see "Settled Design Decisions".
 
+`CalculateValue.py --metric war` computes an optional second metric the same way, but subtracting an empirically-computed *replacement-level* baseline instead of the league-average one, so an average-or-better start (and more of them) accumulates real value instead of netting ~0 — see "Resolved Questions".
+
 The three-step pipeline below is implemented (`src/CalculateMatrix.py`, `src/CalculateValue.py`, `src/CompareCalculations.py`). Every module also carries an `if __name__ == "__main__":` self-check block that doubles as its test coverage — run `./run_self_checks.sh` after making changes. The sections below remain the source of truth for design intent; don't silently deviate from a "Settled Design Decision" or "Resolved Question" when extending the code.
 
 ## Settled Design Decisions
@@ -45,6 +47,7 @@ Builds the league-wide bucket → win-probability matrix.
 | year spread (`2023` or `2020-2025`) | most recent **complete** season |
 | `--alpha` | `0.1` |
 | `--min-start-outs` (exclude starts with fewer outs; `0` includes every start) | `3` (excludes < 1.0 IP) |
+| `--min-start-ratio` (splits pooled starts into a starter pool and a replacement pool for `replacement_baseline`; `0` disables the split) | `0.5` |
 | `--max-threads` (concurrent per-pitcher game-log fetches) | `8` |
 | `--log-level` (`error`/`info`/`debug`) | `info` |
 
@@ -61,10 +64,12 @@ Consumes a generated matrix file and scores pitchers against it.
 | `--years` (`2023` or `2020-2025`) | current season |
 | `--by-season` (one row per pitcher-season instead of totaled) | off (totaled) |
 | `--min-start-ratio` (minimum `gamesStarted / gamesPlayed` for the default all-starters pool; `0` disables it) | `0.5` |
+| `--metric` (`waa` or `war`) | `waa` |
+| `--replacement-level` (absolute WP override for `war`'s replacement baseline, in place of the matrix's computed `replacement_baseline`) | none (use the matrix's) |
 | `--max-threads` (concurrent per-pitcher game-log fetches) | `8` |
 | `--log-level` (`error`/`info`/`debug`) | `info` |
 
-Outputs per-pitcher totals (starts, sum WP, avg WP, WAA) as JSON (source of truth) + an aligned text table, written under `values/` — see "Resolved Questions".
+Outputs per-pitcher totals (starts, sum WP, avg WP, WAA, and WAR when `--metric war`) as JSON (source of truth) + an aligned text table, written under `values/` — see "Resolved Questions".
 
 **The matrix year and the evaluation year are independent** — building on 2020-2025 and evaluating 2026 is a normal use case. `CalculateValue.py` must never silently rebuild the matrix; a missing or malformed matrix file is an error.
 
@@ -200,6 +205,7 @@ Decided explicitly by the project owner when `CalculateMatrix.py` was implemente
 - **Multi-year matrices** (`2020-2025`) **pool**, not average: every start from every year in the spread is pooled into one matrix before bucketing/baseline/smoothing, so a season with more starts (or a short season like 2020) is weighted by its actual start count rather than counted equally. See `CalculateMatrix.main()`'s `all_starts` accumulation.
 - **Axis caps:** outs capped at `_OUTS_CAP = 27`, earned runs capped at `_ER_CAP = 9` (both in `CalculateMatrix.py`). A start beyond either cap clamps into the last row/column (`27+` outs, `9+` ER) rather than getting its own sparse cell.
 - **Openers:** included by default, not excluded or specially flagged. `--min-start-outs` (default `3`, i.e. under 1.0 IP) is the tunable cutoff a caller can raise or lower; it is not a hardcoded opener-detection rule.
+- **`replacement_baseline`:** a second, optional summary statistic stored alongside `baseline`. It is the mean WP of the *replacement pool* — pooled starts thrown by pitchers who don't clear `--min-start-ratio`'s aggregate `gamesStarted`/`gamesPlayed` ratio across the matrix's year span (via `SeasonPitchingAPI.GetQualifiedStartersAcrossSeasons`), i.e. spot starters/swingmen/relievers pressed into a start. Like `baseline`, it must be *computed* from the pooled starts, not hardcoded. It does **not** change which starts get bucketed into matrix cells — that still includes every start in the league regardless of who threw it. `--min-start-ratio 0` disables the split and leaves `replacement_baseline` unset (`None`). This is what `CalculateValue.py --metric war` subtracts instead of `baseline`.
 
 Decided explicitly by the project owner when `CalculateValue.py` was implemented. Do not silently change them.
 
@@ -207,6 +213,7 @@ Decided explicitly by the project owner when `CalculateValue.py` was implemented
 - **Filter semantics:** `--team` matches a pitcher's team as of each individual start (splits a mid-season trade correctly across both teams), not their season-end team. `--pitcher` and `--team` both accept either an MLBAM numeric id or a fuzzy name/abbreviation match, resolved via `statsapi.lookup_player`/`lookup_team` (`src/LookupAPI.py`); an ambiguous name raises an error listing every candidate.
 - **Qualification threshold:** the default "all qualified starters" pool requires `gamesStarted / gamesPlayed >= --min-start-ratio` (default `0.5`), so a reliever who picked up a spot start doesn't get scored as a starter. This ratio filter only applies to that default pool — an explicit `--pitcher` is always evaluated regardless of role, and `--team` only filters starts *after* the pool is built. `--min-start-ratio 0` restores the old "any start counts" behavior. Once in the pool (or named via `--pitcher`), there is still no minimum start *count* — a pitcher with one start (that clears the ratio) is reported like any other.
 - **Ratio window matches the report's grouping:** a `--by-season` report qualifies each season independently (`SeasonPitchingAPI.GetQualifiedStarters`) since it scores each season independently anyway. A pooled (non-`--by-season`) multi-year report instead qualifies on the pitcher's *aggregate* `gamesStarted`/`gamesPlayed` summed across every season in `--years` (`SeasonPitchingAPI.GetQualifiedStartersAcrossSeasons`) — otherwise a career reliever with one qualifying rookie season (e.g. Mariano Rivera going 10 GS / 19 GP in 1995) would get pooled into a career-span report on that one season's strength, while every start counted against their bWAR comes from relief years. `CalculateMatrix.py` is unaffected by any of this — it always calls `GetQualifiedStarters(season, min_start_ratio=0)` because the matrix buckets every start in the league regardless of who threw it.
+- **`--metric` (`waa` default, or `war`):** WAA punishes an average start (WP ≈ `baseline`) as worth ~0, so a durable average-or-better starter accumulates little value no matter how many starts they make. `--metric war` instead sums `(smoothed_wp - replacement_baseline)`, using the matrix's empirically-computed `replacement_baseline` (see `CalculateMatrix.py`'s resolved questions above) so an average-or-better start — and more of them — is worth real, accumulating value, matching how real-world WAR treats durability. `--metric war` is a hard error against a matrix with no `replacement_baseline` (built with `--min-start-ratio 0`, or predating this feature) unless `--replacement-level` is also given. `--replacement-level` is an absolute WP override for callers who want to substitute their own judgment for the matrix's computed value; whichever value is actually used is recorded in the output's `replacement_baseline` field for provenance. Default output (`--metric waa`) is unaffected by any of this.
 
 Decided explicitly by the project owner when `CompareCalculations.py` was implemented. Do not silently change them.
 
@@ -214,3 +221,4 @@ Decided explicitly by the project owner when `CompareCalculations.py` was implem
 - **Pooled (non-`--by-season`) values reports:** compared against each pitcher's bWAR *summed across every season in the report's `eval_years`*, so a career-span WAA lines up with a career-span WAR sum.
 - **Few-point reports never error:** every point is always plotted; the best-fit line and correlation stats are skipped only when there are `< 2` points (this covers the single-pitcher case naturally — a `--pitcher --by-season` report with several seasons still gets a real fit).
 - **Report depth:** for each WAR version compared — n, Pearson r, R², best-fit slope/intercept, and a table of the largest-residual pitchers, not just the scatterplot image.
+- **Metric-aware analysis and writing:** `CompareCalculations.py` reads `ValueReport.metric` and compares bWAR against `pv.war` instead of `pv.waa` when it's `"war"` (`src/Models/Comparison.py`'s `ComparisonPoint.our_value`/`reference_value`, `ComparisonResult.our_metric` carry this through). Every title, axis label, column header, and best-fit description in `ReportIO.py`'s output is derived from `result.our_metric.upper()`, not hardcoded to `"WAA"` — a `--metric war` values file gets a report that reads "WAR" throughout, plus a `**Metric:**` bullet spelling out the replacement-level baseline used and a sentence pointing the reader at the paired WAA report for the same pitchers. This must never silently compare a WAR-mode values file against WAA (or vice versa).

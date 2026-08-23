@@ -2,7 +2,7 @@ import logging
 import os
 
 import MatrixIO
-from MatrixBuilder import BucketStarts, BuildRawCells, ComputeBaseline
+from MatrixBuilder import BucketStarts, BuildRawCells, ComputeBaseline, ComputeReplacementBaseline
 from Models.Matrix import Matrix
 from Models.Start import Start
 from PitchingAPI import PitcherGameLogAPI, SeasonPitchingAPI
@@ -58,14 +58,24 @@ def _FetchSeasonStarts(season: int, min_start_outs: int, max_threads: int) -> tu
     return season_starts, season_excluded
 
 
-def main(year_spread: str | None, alpha: float, min_start_outs: int, max_threads: int, log_level: str) -> None:
+def main(
+    year_spread:     str | None,
+    alpha:           float,
+    min_start_outs:  int,
+    min_start_ratio: float,
+    max_threads:     int,
+    log_level:       str,
+) -> None:
     logging.basicConfig(
         level  = getattr(logging, log_level),
         format = "%(asctime)s [%(levelname)s] %(message)s",
     )
 
     years = ParseYearSpread(year_spread) if year_spread else [_DefaultSeason()]
-    logging.info(f"Building matrix for years={years} alpha={alpha} min_start_outs={min_start_outs} max_threads={max_threads}")
+    logging.info(
+        f"Building matrix for years={years} alpha={alpha} min_start_outs={min_start_outs} "
+        f"min_start_ratio={min_start_ratio} max_threads={max_threads}"
+    )
 
     all_starts: list[Start] = []
     excluded_openers = 0
@@ -81,6 +91,23 @@ def main(year_spread: str | None, alpha: float, min_start_outs: int, max_threads
     baseline = ComputeBaseline(all_starts, alpha)
     logging.info(f"Baseline WP = {baseline:.4f}")
 
+    # replacement_baseline is a second summary statistic over the same pooled starts -- it does
+    # not affect which starts get bucketed into the matrix cells (the matrix still pools every
+    # start in the league regardless of who threw it).
+    qualified_pools = SeasonPitchingAPI.GetQualifiedStartersAcrossSeasons(years, min_start_ratio)
+    qualified_ids   = {pid for pool in qualified_pools.values() for pid in pool}
+    replacement_baseline = ComputeReplacementBaseline(all_starts, qualified_ids, alpha)
+    replacement_pool_size = sum(1 for s in all_starts if s.pitcher_id not in qualified_ids)
+    if replacement_baseline is not None:
+        logging.info(
+            f"Replacement baseline WP = {replacement_baseline:.4f} "
+            f"({replacement_pool_size} replacement-pool starts, "
+            f"{len(all_starts) - replacement_pool_size} starter-pool starts, "
+            f"min_start_ratio={min_start_ratio})"
+        )
+    else:
+        logging.info(f"Replacement baseline not computed (min_start_ratio={min_start_ratio} left an empty replacement pool)")
+
     buckets = BucketStarts(all_starts, outs_cap=_OUTS_CAP, er_cap=_ER_CAP)
     cells   = BuildRawCells(buckets, outs_cap=_OUTS_CAP, er_cap=_ER_CAP, alpha=alpha)
     cells   = ApplyShrinkageAndIsotonic(cells, baseline=baseline, outs_cap=_OUTS_CAP, er_cap=_ER_CAP)
@@ -90,15 +117,17 @@ def main(year_spread: str | None, alpha: float, min_start_outs: int, max_threads
             logging.debug(f"Interpolated cell outs={cell.outs} er={cell.earned_runs} -> {cell.smoothed_wp:.4f}")
 
     matrix = Matrix(
-        years            = years,
-        alpha            = alpha,
-        baseline         = baseline,
-        outs_cap         = _OUTS_CAP,
-        er_cap           = _ER_CAP,
-        cells            = cells,
-        total_starts     = len(all_starts),
-        min_start_outs   = min_start_outs,
-        excluded_openers = excluded_openers,
+        years                       = years,
+        alpha                       = alpha,
+        baseline                    = baseline,
+        outs_cap                    = _OUTS_CAP,
+        er_cap                      = _ER_CAP,
+        cells                       = cells,
+        total_starts                = len(all_starts),
+        min_start_outs              = min_start_outs,
+        excluded_openers            = excluded_openers,
+        replacement_baseline        = replacement_baseline,
+        replacement_min_start_ratio = min_start_ratio,
     )
 
     stem = MatrixIO.OutputFileStem(years, alpha)
@@ -121,6 +150,16 @@ if __name__ == "__main__":
         help="Exclude starts with fewer than this many outs (default 3, i.e. < 1.0 IP). Use 0 to include all starts.",
     )
     parser.add_argument(
+        "--min-start-ratio", type=float, default=0.5,
+        help="Minimum gamesStarted/gamesPlayed ratio (aggregated across the full year spread) used "
+             "to split the pooled starts into a starter pool and a replacement pool -- the "
+             "replacement pool's mean WP becomes replacement_baseline, an empirical replacement-"
+             "level baseline CalculateValue.py can use for --metric war (default 0.5). This does "
+             "not filter which starts are bucketed into the matrix -- every start in the league is "
+             "still pooled regardless of who threw it. 0 disables the split (replacement_baseline "
+             "is left unset).",
+    )
+    parser.add_argument(
         "--max-threads", type=int, default=8,
         help="Max concurrent threads fetching per-pitcher game logs within a season (default 8).",
     )
@@ -136,5 +175,10 @@ if __name__ == "__main__":
 
     if args.max_threads < 1:
         parser.error("--max-threads must be at least 1")
+    if not (0.0 <= args.min_start_ratio <= 1.0):
+        parser.error("--min-start-ratio must be between 0 and 1")
 
-    main(args.year_spread, args.alpha, args.min_start_outs, args.max_threads, args.log_level)
+    main(
+        args.year_spread, args.alpha, args.min_start_outs, args.min_start_ratio,
+        args.max_threads, args.log_level,
+    )

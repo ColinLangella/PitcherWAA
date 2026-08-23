@@ -1,4 +1,4 @@
-Matrix years=2024-2024 alpha=0.10 baseline=0.488 total_starts=4827
+Matrix years=2024-2024 alpha=0.10 baseline=0.488 replacement_baseline=0.399 replacement_min_start_ratio=0.50 total_starts=4827
           ER=0   ER=1   ER=2   ER=3   ER=4   ER=5   ER=6   ER=7   ER=8   ER=9+  
 Outs=0     0.488* 0.422* 0.420* 0.351* 0.290* 0.262* 0.262* 0.262* 0.262* 0.262*
 Outs=1     0.488* 0.422* 0.420* 0.351* 0.290* 0.262* 0.262* 0.262* 0.262* 0.262*

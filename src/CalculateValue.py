@@ -60,14 +60,16 @@ def _FetchStarts(pitcher_ids: list[int], season: int, min_start_outs: int, max_t
 
 
 def main(
-    matrix_path:      str,
-    pitcher:          str | None,
-    team:             str | None,
-    year_spread:      str | None,
-    by_season:        bool,
-    min_start_ratio:  float,
-    max_threads:      int,
-    log_level:        str,
+    matrix_path:       str,
+    pitcher:           str | None,
+    team:              str | None,
+    year_spread:       str | None,
+    by_season:         bool,
+    min_start_ratio:   float,
+    metric:            str,
+    replacement_level: float | None,
+    max_threads:       int,
+    log_level:         str,
 ) -> None:
     logging.basicConfig(
         level  = getattr(logging, log_level),
@@ -77,15 +79,26 @@ def main(
     years = ParseYearSpread(year_spread) if year_spread else [_CurrentSeason()]
     logging.info(
         f"Evaluating years={years} against matrix={matrix_path} pitcher={pitcher} team={team} "
-        f"by_season={by_season} min_start_ratio={min_start_ratio}"
+        f"by_season={by_season} min_start_ratio={min_start_ratio} metric={metric}"
     )
 
     matrix = MatrixIO.ReadJSON(matrix_path)
     logging.info(
         f"Loaded matrix years={matrix.years} alpha={matrix.alpha} baseline={matrix.baseline:.4f} "
-        f"min_start_outs={matrix.min_start_outs}"
+        f"replacement_baseline={matrix.replacement_baseline} min_start_outs={matrix.min_start_outs}"
     )
     by_pos = {(c.outs, c.earned_runs): c for c in matrix.cells}
+
+    resolved_replacement_baseline = (
+        replacement_level if replacement_level is not None else matrix.replacement_baseline
+    )
+    if metric == "war" and resolved_replacement_baseline is None:
+        raise ValueError(
+            "--metric war requires a replacement baseline: rebuild the matrix with "
+            "CalculateMatrix.py --min-start-ratio > 0, or pass --replacement-level explicitly."
+        )
+    if replacement_level is not None:
+        logging.info(f"Using --replacement-level override={replacement_level:.4f} (matrix had {matrix.replacement_baseline})")
 
     pitcher_id, pitcher_name = (
         _ResolvePlayerAcrossYears(pitcher, years) if pitcher else (None, None)
@@ -130,11 +143,14 @@ def main(
     for (pid, season_key), starts in by_pitcher.items():
         sum_wp = 0.0
         waa    = 0.0
+        war    = 0.0 if metric == "war" else None
         for s in starts:
             cell = by_pos[(min(s.outs, matrix.outs_cap), min(s.earned_runs, matrix.er_cap))]
             wp   = cell.smoothed_wp
             sum_wp += wp
             waa    += wp - matrix.baseline
+            if metric == "war":
+                war += wp - resolved_replacement_baseline
             logging.debug(
                 f"pitcher_id={pid} season={s.season} game={s.game_pk} outs={s.outs} er={s.earned_runs} "
                 f"wp={wp:.4f} waa_contribution={wp - matrix.baseline:.4f}"
@@ -149,24 +165,27 @@ def main(
             avg_wp       = sum_wp / len(starts),
             waa          = waa,
             season       = season_key,
+            war          = war,
         ))
 
     logging.info(f"Scored {len(pitchers)} pitcher(s)")
 
     report = ValueReport(
-        eval_years      = years,
-        matrix_path     = matrix_path,
-        matrix_years    = matrix.years,
-        matrix_alpha    = matrix.alpha,
-        baseline        = matrix.baseline,
-        pitchers        = pitchers,
-        pitcher_filter  = pitcher_id,
-        team_filter     = team_name,
-        by_season       = by_season,
-        min_start_ratio = min_start_ratio,
+        eval_years           = years,
+        matrix_path          = matrix_path,
+        matrix_years         = matrix.years,
+        matrix_alpha         = matrix.alpha,
+        baseline             = matrix.baseline,
+        pitchers             = pitchers,
+        pitcher_filter       = pitcher_id,
+        team_filter          = team_name,
+        by_season            = by_season,
+        min_start_ratio      = min_start_ratio,
+        metric               = metric,
+        replacement_baseline = resolved_replacement_baseline if metric == "war" else None,
     )
 
-    stem = ValueIO.OutputFileStem(years, matrix_path, pitcher_id, team_name, by_season, min_start_ratio)
+    stem = ValueIO.OutputFileStem(years, matrix_path, pitcher_id, team_name, by_season, min_start_ratio, metric)
     os.makedirs(ValueIO.OUTPUT_DIR, exist_ok=True)
     json_path = os.path.join(ValueIO.OUTPUT_DIR, f"{stem}.json")
     text_path = os.path.join(ValueIO.OUTPUT_DIR, f"{stem}.txt")
@@ -197,6 +216,20 @@ if __name__ == "__main__":
              "old behavior).",
     )
     parser.add_argument(
+        "--metric", type=str.lower, choices=["waa", "war"], default="waa",
+        help="Value metric to compute (default waa). 'waa' subtracts the matrix's league-average "
+             "baseline from each start's WP, so an average start nets ~0. 'war' subtracts a "
+             "replacement-level baseline instead, so an average-or-better start (and more of "
+             "them) accumulates real value the way real-world WAR does -- requires a matrix built "
+             "with CalculateMatrix.py --min-start-ratio > 0, or an explicit --replacement-level.",
+    )
+    parser.add_argument(
+        "--replacement-level", type=float, default=None,
+        help="Absolute win-probability override for the replacement baseline used by --metric war, "
+             "in place of the matrix's own computed replacement_baseline. Ignored when --metric "
+             "is not 'war'.",
+    )
+    parser.add_argument(
         "--max-threads", type=int, default=8,
         help="Max concurrent threads fetching per-pitcher game logs within a season (default 8).",
     )
@@ -214,8 +247,10 @@ if __name__ == "__main__":
         parser.error("--max-threads must be at least 1")
     if not (0.0 <= args.min_start_ratio <= 1.0):
         parser.error("--min-start-ratio must be between 0 and 1")
+    if args.replacement_level is not None and not (0.0 <= args.replacement_level <= 1.0):
+        parser.error("--replacement-level must be between 0 and 1")
 
     main(
         args.matrix_file, args.pitcher, args.team, args.years, args.by_season,
-        args.min_start_ratio, args.max_threads, args.log_level,
+        args.min_start_ratio, args.metric, args.replacement_level, args.max_threads, args.log_level,
     )
