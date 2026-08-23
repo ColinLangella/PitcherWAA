@@ -22,5 +22,6 @@ python src/CompareCalculations.py values/value_2026_matrix_2000-2025_a0.10.json
 python src/CompareCalculations.py values/value_2000-2026_matrix_2000-2025_a0.10.json
 python src/CompareCalculations.py values/value_1950-2026_matrix_2000-2025_a0.10.json
 python src/CompareCalculations.py values/value_2000-2026_matrix_2000-2025_a0.10_pitcher136880_byseason.json
+python src/CompareCalculations.py values/value_2026_matrix_2000-2025_a0.10_war.json
 
 echo "All examples regenerated."

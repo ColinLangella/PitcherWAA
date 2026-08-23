@@ -221,18 +221,26 @@ by `WAR` descending instead.
 
 ## `CompareCalculations.py`
 
-Takes a `values/*.json` file produced above and checks WAA against
+Takes a `values/*.json` file produced above and checks it against
 Baseball-Reference's bWAR for the same pitchers/seasons, via
 [`pybaseball`](https://github.com/jldbc/pybaseball) (`bwar_pitch()`, one bulk
 data file covering every season/pitcher, joined directly on its `mlb_ID`
 column -- no scraping, no id crosswalk needed). It figures out everything it
-needs (matrix, alpha, eval years, `--by-season` vs. pooled, any
-`--pitcher`/`--team` filter) from the values JSON itself.
+needs (matrix, alpha, eval years, `--by-season` vs. pooled, `--metric`, any
+`--pitcher`/`--team` filter) from the values JSON itself -- including which of
+this project's own metrics to compare. A values file built with `--metric war`
+gets compared, plotted, and written up as WAR vs. bWAR throughout (titles,
+axis labels, column headers, and the prose analysis all say "WAR", and the
+scope bullets explain the replacement-level baseline that mode uses); a
+default `--metric waa` values file is unaffected and reads exactly as before.
 
 ```bash
 python src/CompareCalculations.py values/value_2024_matrix_2024_a0.10.json
 
 python src/CompareCalculations.py values/value_2000-2026_matrix_2000-2025_a0.10_byseason.json --log-level debug
+
+# Same detection applies to a --metric war values file -- no extra flag needed here
+python src/CompareCalculations.py values/value_2026_matrix_2000-2025_a0.10_war.json
 ```
 
 `--log-level` has the same `error`/`info`/`debug` semantics as the other two
@@ -262,8 +270,9 @@ reports/value_2000-2026_matrix_2000-2025_a0.10_byseason/
 
 - **Scope:** All qualified starters
 - **Years evaluated:** 2000–2026 (one row per pitcher-season)
+- **Metric:** WAA (league-average baseline=0.495)
 - Source values file: `value_2000-2026_matrix_2000-2025_a0.10_byseason.json`
-- Matrix: `matrix_2000-2025_a0.10.json` (years=2000-2025, alpha=0.10, baseline=0.495)
+- Matrix: `matrix_2000-2025_a0.10.json` (years=2000-2025, alpha=0.10)
 
 ## WAA vs bWAR
 
@@ -290,6 +299,12 @@ reports/value_2000-2026_matrix_2000-2025_a0.10_byseason/
 The header's **Scope** line reflects any `--pitcher`/`--team` filter baked into the
 source values file (a pitcher name + MLBAM id, a team name, or "All qualified
 starters"), so it's always clear at a glance what a given report actually covers.
+The **Metric** line reflects the values file's own `--metric`: for a `--metric
+war` file it instead reads `**Metric:** WAR (replacement-level baseline=...,
+vs. league-average baseline=...)`, every `WAA` label in the sections below
+becomes `WAR`, and an extra sentence explains how to read the fit against the
+paired WAA report for the same pitchers. See
+`reports/value_2026_matrix_2000-2025_a0.10_war/report.md` for a full example.
 
 **fWAR (FanGraphs) is not yet supported.** FanGraphs' leaderboard endpoint
 sits behind an active Cloudflare bot challenge that blocks `pybaseball` (and

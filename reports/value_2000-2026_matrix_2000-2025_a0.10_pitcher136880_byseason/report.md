@@ -2,8 +2,9 @@
 
 - **Scope:** Roy Halladay (MLBAM id 136880)
 - **Years evaluated:** 2000–2026 (one row per pitcher-season)
+- **Metric:** WAA (league-average baseline=0.495)
 - Source values file: `value_2000-2026_matrix_2000-2025_a0.10_pitcher136880_byseason.json`
-- Matrix: `matrix_2000-2025_a0.10.json` (years=2000-2025, alpha=0.10, baseline=0.495)
+- Matrix: `matrix_2000-2025_a0.10.json` (years=2000-2025, alpha=0.10)
 
 ## WAA vs bWAR
 

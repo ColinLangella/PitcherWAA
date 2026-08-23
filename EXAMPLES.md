@@ -59,4 +59,15 @@ python src/CompareCalculations.py values/value_2026_matrix_2000-2025_a0.10.json
 python src/CompareCalculations.py values/value_2000-2026_matrix_2000-2025_a0.10.json
 python src/CompareCalculations.py values/value_1950-2026_matrix_2000-2025_a0.10.json
 python src/CompareCalculations.py values/value_2000-2026_matrix_2000-2025_a0.10_pitcher136880_byseason.json
+python src/CompareCalculations.py values/value_2026_matrix_2000-2025_a0.10_war.json
 ```
+
+The last report, `reports/value_2026_matrix_2000-2025_a0.10_war/`, is built from
+the `--metric war` values example above -- `CompareCalculations.py` detects
+`metric == "war"` from the values file itself and adjusts its writing
+accordingly (titles/headers/column labels read "WAR" instead of "WAA", the
+scope bullets explain the replacement-level baseline, and the scatter/best-fit
+compares bWAR against this project's WAR rather than WAA). Diff its
+`report.md` against `reports/value_2026_matrix_2000-2025_a0.10/report.md` (the
+`--metric waa` version of the same 2026 evaluation) to see exactly what
+changes.

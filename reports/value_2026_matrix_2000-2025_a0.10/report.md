@@ -2,8 +2,9 @@
 
 - **Scope:** All qualified starters
 - **Years evaluated:** 2026 (pooled across the full span)
+- **Metric:** WAA (league-average baseline=0.495)
 - Source values file: `value_2026_matrix_2000-2025_a0.10.json`
-- Matrix: `matrix_2000-2025_a0.10.json` (years=2000-2025, alpha=0.10, baseline=0.495)
+- Matrix: `matrix_2000-2025_a0.10.json` (years=2000-2025, alpha=0.10)
 
 ## WAA vs bWAR
 
