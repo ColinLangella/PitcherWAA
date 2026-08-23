@@ -10,20 +10,23 @@ class PitcherValue:
     avg_wp:       float
     waa:          float
     season:       int | None = None   # set iff the report is split by_season; None means pooled across eval_years
+    war:          float | None = None   # sum(wp - replacement_baseline); set only when metric == "war"
 
 
 @dataclasses.dataclass
 class ValueReport:
-    eval_years:      list[int]
-    matrix_path:     str
-    matrix_years:    list[int]
-    matrix_alpha:    float
-    baseline:        float
-    pitchers:        list[PitcherValue]
-    pitcher_filter:  int | None = None
-    team_filter:     str | None = None
-    by_season:       bool = False
-    min_start_ratio: float = 0.5   # gamesStarted/gamesPlayed cutoff used to build the default starter pool; irrelevant when pitcher_filter is set
+    eval_years:           list[int]
+    matrix_path:          str
+    matrix_years:         list[int]
+    matrix_alpha:         float
+    baseline:             float
+    pitchers:             list[PitcherValue]
+    pitcher_filter:       int | None = None
+    team_filter:          str | None = None
+    by_season:            bool = False
+    min_start_ratio:      float = 0.5   # gamesStarted/gamesPlayed cutoff used to build the default starter pool; irrelevant when pitcher_filter is set
+    metric:               str = "waa"   # "waa" (default) or "war"; selects which PitcherValue field drives sorting/display
+    replacement_baseline: float | None = None   # replacement-level WP actually used for war (matrix's, or --replacement-level override); None unless metric == "war"
 
 
 if __name__ == "__main__":

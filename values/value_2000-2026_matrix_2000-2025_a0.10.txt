@@ -1,4 +1,4 @@
-Values eval_years=2000-2026 matrix=matrix_2000-2025_a0.10.json baseline=0.495 pitchers=1027 min_start_ratio=0.50
+Values eval_years=2000-2026 matrix=matrix_2000-2025_a0.10.json baseline=0.495 pitchers=1027 min_start_ratio=0.50 metric=waa
 Pitcher                       ID  Starts    SumWP   AvgWP      WAA
 Clayton Kershaw           477132     451  281.409   0.624  +58.178
 Justin Verlander          434378     556  319.424   0.575  +44.220

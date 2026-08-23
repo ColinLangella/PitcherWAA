@@ -1,4 +1,4 @@
-Values eval_years=2026-2026 matrix=matrix_2000-2025_a0.10.json baseline=0.495 pitchers=224 min_start_ratio=0.50
+Values eval_years=2026-2026 matrix=matrix_2000-2025_a0.10.json baseline=0.495 pitchers=224 min_start_ratio=0.50 metric=waa
 Pitcher                       ID  Starts    SumWP   AvgWP      WAA
 Jacob Misiorowski         694819      24   16.431   0.685   +4.552
 Cam Schlittler            693645      27   17.648   0.654   +4.284
@@ -137,8 +137,8 @@ Mitch Bratt               683352       8    3.672   0.459   -0.288
 Trevor McDonald           686790      14    6.639   0.474   -0.291
 Andrew Alvarez            674841      11    5.147   0.468   -0.297
 Gage Jump                 695611      16    7.601   0.475   -0.319
-Justin Verlander          434378       1    0.158   0.158   -0.337
 Brendan Beck              694341       1    0.158   0.158   -0.337
+Justin Verlander          434378       1    0.158   0.158   -0.337
 Bubba Chandler            696149      23   11.038   0.480   -0.346
 Jose Cabrera              703615       4    1.609   0.402   -0.371
 Nick Lodolo               666157      15    7.040   0.469   -0.384

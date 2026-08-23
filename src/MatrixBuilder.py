@@ -21,6 +21,17 @@ def ComputeBaseline(starts: list[Start], alpha: float) -> float:
     return sum(_DecisionValue(s.decision, alpha) for s in starts) / len(starts)
 
 
+def ComputeReplacementBaseline(starts: list[Start], qualified_ids: set[int], alpha: float) -> float | None:
+    """Mean start WP across the subset of `starts` thrown by pitchers *not* in `qualified_ids` --
+    the empirical replacement-level pool (spot starters, swingmen, relievers pressed into a
+    start). Returns None when that pool is empty (e.g. min_start_ratio=0, meaning every pitcher
+    qualifies), since there is then nothing to compute a replacement level from."""
+    replacement_starts = [s for s in starts if s.pitcher_id not in qualified_ids]
+    if not replacement_starts:
+        return None
+    return ComputeBaseline(replacement_starts, alpha)
+
+
 def BucketStarts(starts: list[Start], outs_cap: int, er_cap: int) -> dict[tuple[int, int], list[Start]]:
     """Groups starts by (outs, ER), clamping outs > outs_cap and ER > er_cap into the last row/col."""
     logging.info(f"Bucketing {len(starts)} starts (outs_cap={outs_cap} er_cap={er_cap})")
@@ -80,4 +91,13 @@ if __name__ == "__main__":
     assert len(cells) == 28 * 10
     populated = [c for c in cells if c.n > 0]
     assert len(populated) == 3
+
+    # pitcher_id=1 (W, L) is "qualified"; pitcher_id=2's lone L is the replacement pool.
+    mixed_starts = starts + [Start(pitcher_id=2, season=2024, game_pk=4, outs=12, earned_runs=6, decision=Decision.L)]
+    replacement_baseline = ComputeReplacementBaseline(mixed_starts, qualified_ids={1}, alpha=0.1)
+    assert replacement_baseline == 0.0, replacement_baseline  # the lone replacement-pool start is a loss -> WP 0.0
+
+    assert ComputeReplacementBaseline(mixed_starts, qualified_ids={1, 2}, alpha=0.1) is None, \
+        "empty replacement pool (everyone qualifies) should return None"
+
     print("MatrixBuilder self-checks passed.")

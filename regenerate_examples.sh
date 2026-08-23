@@ -15,6 +15,7 @@ python src/CalculateValue.py output/matrix_2000-2025_a0.10.json
 python src/CalculateValue.py output/matrix_2000-2025_a0.10.json --years 2000-2026
 python src/CalculateValue.py output/matrix_2000-2025_a0.10.json --years 1950-2026
 python src/CalculateValue.py output/matrix_2000-2025_a0.10.json --pitcher 136880 --years 2000-2026 --by-season
+python src/CalculateValue.py output/matrix_2000-2025_a0.10.json --metric war
 
 echo "== Reports (reports/) =="
 python src/CompareCalculations.py values/value_2026_matrix_2000-2025_a0.10.json

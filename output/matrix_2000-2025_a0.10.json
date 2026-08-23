@@ -3675,5 +3675,7 @@
   ],
   "total_starts": 123268,
   "min_start_outs": 0,
-  "excluded_openers": 0
+  "excluded_openers": 0,
+  "replacement_baseline": 0.43742667747628183,
+  "replacement_min_start_ratio": 0.5
 }

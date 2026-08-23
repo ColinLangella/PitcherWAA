@@ -39,6 +39,10 @@ python src/CalculateMatrix.py 2024 --max-threads 16
 # Include "opener" starts under 1.0 IP instead of excluding them (default excludes < 3 outs)
 python src/CalculateMatrix.py 2024 --min-start-outs 0
 
+# Loosen or disable the starter/replacement split used for replacement_baseline (default 0.5)
+python src/CalculateMatrix.py 2024 --min-start-ratio 0.3
+python src/CalculateMatrix.py 2024 --min-start-ratio 0
+
 # Logging verbosity: error, info, or debug (default info)
 python src/CalculateMatrix.py 2024 --log-level debug
 ```
@@ -61,6 +65,16 @@ Each run writes `output/matrix_<years>_a<alpha>.json` and the matching
 `output/matrix_2024_a0.10.txt`. A multi-year spread like `2020-2025` produces
 `matrix_2020-2025_a0.10.{json,txt}`.
 
+`--min-start-ratio` (default `0.5`) splits the matrix's pooled starts into a
+starter pool and a replacement pool by each pitcher's aggregate
+`gamesStarted / gamesPlayed` ratio over the matrix's year span -- the
+replacement pool's mean WP becomes `replacement_baseline`, an empirical
+replacement-level baseline `CalculateValue.py`'s `--metric war` can use.
+This only affects that one derived statistic, not which starts get bucketed
+into the matrix cells (every start in the league is still pooled regardless
+of who threw it). Pass `0` to disable the split (`replacement_baseline` is
+left unset).
+
 Raw MLB API responses are cached on disk under `src/Cache/` (keyed by season
 and pitcher ID), so re-running the same year(s) — including with a different
 `--alpha` — reuses the cache instead of re-fetching. A cold run over a full
@@ -71,7 +85,7 @@ warm rerun is near-instant.
 ### Sample output (`matrix_2024_a0.10.txt`, truncated)
 
 ```
-Matrix years=2024-2024 alpha=0.10 baseline=0.488 total_starts=4827
+Matrix years=2024-2024 alpha=0.10 baseline=0.488 replacement_baseline=0.399 replacement_min_start_ratio=0.50 total_starts=4827
           ER=0   ER=1   ER=2   ER=3   ER=4   ER=5   ER=6   ER=7   ER=8   ER=9+
 Outs=0     0.488* 0.422* 0.420* 0.351* 0.290* 0.262* 0.262* 0.262* 0.262* 0.262*
 ...
@@ -94,6 +108,16 @@ against it: WAA = sum over their starts of `(matrix cell's smoothed_wp -
 matrix baseline)`. It never rebuilds the matrix -- a missing or malformed
 matrix file is an error.
 
+`--metric war` computes a second, opt-in metric alongside WAA: WAR = sum
+over their starts of `(matrix cell's smoothed_wp - replacement_baseline)`,
+where `replacement_baseline` is below the league-average baseline (see
+`CalculateMatrix.py`'s `--min-start-ratio` above). Subtracting a
+replacement-level baseline instead of a league-average one means an
+average-or-better start is worth something, and more of them is worth
+more -- closer to how real-world WAR rewards durable, average-or-better
+volume rather than punishing it. Default output (`--metric waa`, the
+default) is unaffected either way.
+
 ```bash
 # Every qualified starter, evaluated against the 2024 matrix, for the 2024 season
 python src/CalculateValue.py output/matrix_2024_a0.10.json --years 2024
@@ -114,6 +138,13 @@ python src/CalculateValue.py output/matrix_2020-2025_a0.10.json --pitcher "Gerri
 # Loosen or disable the starter-role filter (default 0.5) for the default all-pitchers pool
 python src/CalculateValue.py output/matrix_2024_a0.10.json --min-start-ratio 0.3
 python src/CalculateValue.py output/matrix_2024_a0.10.json --min-start-ratio 0
+
+# Compute WAR (replacement-level baseline) alongside WAA -- requires a matrix built with
+# CalculateMatrix.py --min-start-ratio > 0
+python src/CalculateValue.py output/matrix_2024_a0.10.json --years 2024 --metric war
+
+# Override the replacement baseline instead of using the matrix's computed one
+python src/CalculateValue.py output/matrix_2024_a0.10.json --years 2024 --metric war --replacement-level 0.40
 
 # Control concurrent per-pitcher fetches (default 8) and logging verbosity (default info)
 python src/CalculateValue.py output/matrix_2024_a0.10.json --max-threads 16 --log-level debug
@@ -171,7 +202,7 @@ and the matching `.txt` table -- a directory separate from `output/`, since
 ### Sample output (`value_2024_matrix_2024_a0.10.txt`, truncated)
 
 ```
-Values eval_years=2024-2024 matrix=matrix_2024_a0.10.json baseline=0.488 pitchers=366
+Values eval_years=2024-2024 matrix=matrix_2024_a0.10.json baseline=0.488 pitchers=259 min_start_ratio=0.50 metric=waa
 Pitcher                       ID  Starts    SumWP   AvgWP      WAA
 Zack Wheeler              554430      32   20.349   0.636   +4.743
 Chris Sale                519242      29   18.526   0.639   +4.383
@@ -183,6 +214,10 @@ Taijuan Walker            592836      15    5.657   0.377   -1.658
 Rows are sorted by WAA descending. `SumWP`/`AvgWP` are the sum/average of
 each start's `smoothed_wp` looked up from the matrix; `WAA` is the sum of
 `(smoothed_wp - baseline)` across the pitcher's starts.
+
+With `--metric war`, the header line additionally shows
+`replacement_baseline=`, a `WAR` column appears after `WAA`, and rows sort
+by `WAR` descending instead.
 
 ## `CompareCalculations.py`
 

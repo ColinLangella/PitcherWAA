@@ -37,10 +37,17 @@ grouping".
 | `value_2000-2026_matrix_2000-2025_a0.10.json` / `.txt` | `python src/CalculateValue.py output/matrix_2000-2025_a0.10.json --years 2000-2026` |
 | `value_1950-2026_matrix_2000-2025_a0.10.json` / `.txt` | `python src/CalculateValue.py output/matrix_2000-2025_a0.10.json --years 1950-2026` |
 | `value_2000-2026_matrix_2000-2025_a0.10_pitcher136880_byseason.json` / `.txt` | `python src/CalculateValue.py output/matrix_2000-2025_a0.10.json --pitcher 136880 --years 2000-2026 --by-season` |
+| `value_2026_matrix_2000-2025_a0.10_war.json` / `.txt` | `python src/CalculateValue.py output/matrix_2000-2025_a0.10.json --metric war` |
 
 The first has no `--years` flag, so it evaluates the actual current season
 (2026 as of this writing) via `CalculateValue.py`'s default. Pitcher `136880`
-is Roy Halladay.
+is Roy Halladay. The last is the same evaluation as the first
+(`value_2026_matrix_2000-2025_a0.10.json`) but with `--metric war` added, so
+diffing the two `.txt` files side by side shows exactly what the
+replacement-level metric changes: a `WAR` column, and rows resorted by it.
+`output/matrix_2000-2025_a0.10.json`'s `replacement_baseline` comes from
+`CalculateMatrix.py`'s default `--min-start-ratio 0.5`, applied
+automatically since the matrix-building command above doesn't override it.
 
 ## Reports (`reports/`)
 
