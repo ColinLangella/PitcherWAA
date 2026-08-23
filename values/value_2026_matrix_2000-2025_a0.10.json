@@ -35,21 +35,21 @@
   "baseline": 0.4949703085958882,
   "pitchers": [
     {
-      "pitcher_id": 660271,
-      "pitcher_name": "Shohei Ohtani",
-      "starts": 14,
-      "sum_wp": 9.580383846190456,
-      "avg_wp": 0.6843131318707468,
-      "waa": 2.650799525848023,
+      "pitcher_id": 683363,
+      "pitcher_name": "Matt Wilkinson",
+      "starts": 1,
+      "sum_wp": 0.5039801999226535,
+      "avg_wp": 0.5039801999226535,
+      "waa": 0.009009891326765329,
       "season": null
     },
     {
-      "pitcher_id": 694819,
-      "pitcher_name": "Jacob Misiorowski",
-      "starts": 24,
-      "sum_wp": 16.430952476532507,
-      "avg_wp": 0.6846230198555211,
-      "waa": 4.551665070231195,
+      "pitcher_id": 675512,
+      "pitcher_name": "Troy Melton",
+      "starts": 15,
+      "sum_wp": 10.32461813315584,
+      "avg_wp": 0.6883078755437226,
+      "waa": 2.9000635042175187,
       "season": null
     },
     {
@@ -71,24 +71,6 @@
       "season": null
     },
     {
-      "pitcher_id": 683363,
-      "pitcher_name": "Matt Wilkinson",
-      "starts": 1,
-      "sum_wp": 0.5039801999226535,
-      "avg_wp": 0.5039801999226535,
-      "waa": 0.009009891326765329,
-      "season": null
-    },
-    {
-      "pitcher_id": 519242,
-      "pitcher_name": "Chris Sale",
-      "starts": 23,
-      "sum_wp": 14.854713865203983,
-      "avg_wp": 0.6458571245740863,
-      "waa": 3.4703967674985576,
-      "season": null
-    },
-    {
       "pitcher_id": 656302,
       "pitcher_name": "Dylan Cease",
       "starts": 23,
@@ -98,12 +80,21 @@
       "season": null
     },
     {
-      "pitcher_id": 675512,
-      "pitcher_name": "Troy Melton",
-      "starts": 15,
-      "sum_wp": 10.32461813315584,
-      "avg_wp": 0.6883078755437226,
-      "waa": 2.9000635042175187,
+      "pitcher_id": 660271,
+      "pitcher_name": "Shohei Ohtani",
+      "starts": 14,
+      "sum_wp": 9.580383846190456,
+      "avg_wp": 0.6843131318707468,
+      "waa": 2.650799525848023,
+      "season": null
+    },
+    {
+      "pitcher_id": 694819,
+      "pitcher_name": "Jacob Misiorowski",
+      "starts": 24,
+      "sum_wp": 16.430952476532507,
+      "avg_wp": 0.6846230198555211,
+      "waa": 4.551665070231195,
       "season": null
     },
     {
@@ -116,6 +107,33 @@
       "season": null
     },
     {
+      "pitcher_id": 519242,
+      "pitcher_name": "Chris Sale",
+      "starts": 23,
+      "sum_wp": 14.854713865203983,
+      "avg_wp": 0.6458571245740863,
+      "waa": 3.4703967674985576,
+      "season": null
+    },
+    {
+      "pitcher_id": 621107,
+      "pitcher_name": "Zach Eflin",
+      "starts": 1,
+      "sum_wp": 0.43982066651286966,
+      "avg_wp": 0.43982066651286966,
+      "waa": -0.055149642083018535,
+      "season": null
+    },
+    {
+      "pitcher_id": 605280,
+      "pitcher_name": "Clay Holmes",
+      "starts": 12,
+      "sum_wp": 7.468904262933821,
+      "avg_wp": 0.6224086885778184,
+      "waa": 1.5292605597831628,
+      "season": null
+    },
+    {
       "pitcher_id": 650911,
       "pitcher_name": "Cristopher S\u00e1nchez",
       "starts": 26,
@@ -125,48 +143,12 @@
       "season": null
     },
     {
-      "pitcher_id": 701656,
-      "pitcher_name": "Logan Henderson",
-      "starts": 12,
-      "sum_wp": 7.182234567159956,
-      "avg_wp": 0.5985195472633297,
-      "waa": 1.2425908640092955,
-      "season": null
-    },
-    {
-      "pitcher_id": 695505,
-      "pitcher_name": "Chase Burns",
-      "starts": 24,
-      "sum_wp": 15.048191767944,
-      "avg_wp": 0.627007990331,
-      "waa": 3.168904361642682,
-      "season": null
-    },
-    {
-      "pitcher_id": 808967,
-      "pitcher_name": "Yoshinobu Yamamoto",
-      "starts": 22,
-      "sum_wp": 13.92319898978469,
-      "avg_wp": 0.6328726813538496,
-      "waa": 3.033852200675152,
-      "season": null
-    },
-    {
-      "pitcher_id": 676974,
-      "pitcher_name": "Max Meyer",
-      "starts": 20,
-      "sum_wp": 11.943221357036462,
-      "avg_wp": 0.5971610678518231,
-      "waa": 2.0438151851187016,
-      "season": null
-    },
-    {
-      "pitcher_id": 700712,
-      "pitcher_name": "Walbert Ure\u00f1a",
-      "starts": 21,
-      "sum_wp": 12.407608007393087,
-      "avg_wp": 0.590838476542528,
-      "waa": 2.0132315268794354,
+      "pitcher_id": 593958,
+      "pitcher_name": "Eduardo Rodriguez",
+      "starts": 26,
+      "sum_wp": 15.617712546566011,
+      "avg_wp": 0.6006812517910004,
+      "waa": 2.7484845230729222,
       "season": null
     },
     {
@@ -188,21 +170,48 @@
       "season": null
     },
     {
-      "pitcher_id": 593958,
-      "pitcher_name": "Eduardo Rodriguez",
-      "starts": 26,
-      "sum_wp": 15.617712546566011,
-      "avg_wp": 0.6006812517910004,
-      "waa": 2.7484845230729222,
+      "pitcher_id": 701656,
+      "pitcher_name": "Logan Henderson",
+      "starts": 12,
+      "sum_wp": 7.182234567159956,
+      "avg_wp": 0.5985195472633297,
+      "waa": 1.2425908640092955,
       "season": null
     },
     {
-      "pitcher_id": 621107,
-      "pitcher_name": "Zach Eflin",
-      "starts": 1,
-      "sum_wp": 0.43982066651286966,
-      "avg_wp": 0.43982066651286966,
-      "waa": -0.055149642083018535,
+      "pitcher_id": 808967,
+      "pitcher_name": "Yoshinobu Yamamoto",
+      "starts": 22,
+      "sum_wp": 13.92319898978469,
+      "avg_wp": 0.6328726813538496,
+      "waa": 3.033852200675152,
+      "season": null
+    },
+    {
+      "pitcher_id": 676974,
+      "pitcher_name": "Max Meyer",
+      "starts": 20,
+      "sum_wp": 11.943221357036462,
+      "avg_wp": 0.5971610678518231,
+      "waa": 2.0438151851187016,
+      "season": null
+    },
+    {
+      "pitcher_id": 695505,
+      "pitcher_name": "Chase Burns",
+      "starts": 24,
+      "sum_wp": 15.048191767944,
+      "avg_wp": 0.627007990331,
+      "waa": 3.168904361642682,
+      "season": null
+    },
+    {
+      "pitcher_id": 700712,
+      "pitcher_name": "Walbert Ure\u00f1a",
+      "starts": 21,
+      "sum_wp": 12.407608007393087,
+      "avg_wp": 0.590838476542528,
+      "waa": 2.0132315268794354,
       "season": null
     },
     {
@@ -215,48 +224,12 @@
       "season": null
     },
     {
-      "pitcher_id": 605280,
-      "pitcher_name": "Clay Holmes",
-      "starts": 12,
-      "sum_wp": 7.468904262933821,
-      "avg_wp": 0.6224086885778184,
-      "waa": 1.5292605597831628,
-      "season": null
-    },
-    {
-      "pitcher_id": 690986,
-      "pitcher_name": "Kyle Harrison",
-      "starts": 20,
-      "sum_wp": 11.496768672099755,
-      "avg_wp": 0.5748384336049878,
-      "waa": 1.5973625001819935,
-      "season": null
-    },
-    {
-      "pitcher_id": 669373,
-      "pitcher_name": "Tarik Skubal",
-      "starts": 19,
-      "sum_wp": 11.194205725860423,
-      "avg_wp": 0.5891687224137064,
-      "waa": 1.7897698625385479,
-      "season": null
-    },
-    {
-      "pitcher_id": 608331,
-      "pitcher_name": "Max Fried",
-      "starts": 15,
-      "sum_wp": 8.923514714325087,
-      "avg_wp": 0.5949009809550058,
-      "waa": 1.4989600853867626,
-      "season": null
-    },
-    {
-      "pitcher_id": 656876,
-      "pitcher_name": "Drew Rasmussen",
-      "starts": 24,
-      "sum_wp": 14.256051367643977,
-      "avg_wp": 0.5940021403184991,
-      "waa": 2.3767639613426663,
+      "pitcher_id": 647336,
+      "pitcher_name": "Michael Soroka",
+      "starts": 17,
+      "sum_wp": 10.09565263324953,
+      "avg_wp": 0.5938619196029136,
+      "waa": 1.6811573871194327,
       "season": null
     },
     {
@@ -269,24 +242,6 @@
       "season": null
     },
     {
-      "pitcher_id": 647336,
-      "pitcher_name": "Michael Soroka",
-      "starts": 17,
-      "sum_wp": 10.09565263324953,
-      "avg_wp": 0.5938619196029136,
-      "waa": 1.6811573871194327,
-      "season": null
-    },
-    {
-      "pitcher_id": 801139,
-      "pitcher_name": "Payton Tolle",
-      "starts": 21,
-      "sum_wp": 11.886764766816643,
-      "avg_wp": 0.5660364174674593,
-      "waa": 1.4923882863029934,
-      "season": null
-    },
-    {
       "pitcher_id": 674003,
       "pitcher_name": "Cody Bradford",
       "starts": 3,
@@ -296,57 +251,21 @@
       "season": null
     },
     {
-      "pitcher_id": 804267,
-      "pitcher_name": "Zac Thornton",
-      "starts": 9,
-      "sum_wp": 5.089946244272861,
-      "avg_wp": 0.5655495826969845,
-      "waa": 0.6352134669098674,
-      "season": null
-    },
-    {
-      "pitcher_id": 527048,
-      "pitcher_name": "Mart\u00edn P\u00e9rez",
+      "pitcher_id": 690986,
+      "pitcher_name": "Kyle Harrison",
       "starts": 20,
-      "sum_wp": 10.880450595621685,
-      "avg_wp": 0.5440225297810842,
-      "waa": 0.9810444237039218,
+      "sum_wp": 11.496768672099755,
+      "avg_wp": 0.5748384336049878,
+      "waa": 1.5973625001819935,
       "season": null
     },
     {
-      "pitcher_id": 543037,
-      "pitcher_name": "Gerrit Cole",
-      "starts": 16,
-      "sum_wp": 9.132112890601551,
-      "avg_wp": 0.5707570556625969,
-      "waa": 1.2125879530673394,
-      "season": null
-    },
-    {
-      "pitcher_id": 607259,
-      "pitcher_name": "Nick Martinez",
-      "starts": 24,
-      "sum_wp": 14.220982739346553,
-      "avg_wp": 0.5925409474727731,
-      "waa": 2.3416953330452404,
-      "season": null
-    },
-    {
-      "pitcher_id": 605540,
-      "pitcher_name": "Brandon Woodruff",
-      "starts": 9,
-      "sum_wp": 5.098415122237899,
-      "avg_wp": 0.5664905691375444,
-      "waa": 0.6436823448749049,
-      "season": null
-    },
-    {
-      "pitcher_id": 663554,
-      "pitcher_name": "Casey Mize",
-      "starts": 19,
-      "sum_wp": 10.66152212645968,
-      "avg_wp": 0.5611327434978779,
-      "waa": 1.2570862631378068,
+      "pitcher_id": 608331,
+      "pitcher_name": "Max Fried",
+      "starts": 15,
+      "sum_wp": 8.923514714325087,
+      "avg_wp": 0.5949009809550058,
+      "waa": 1.4989600853867626,
       "season": null
     },
     {
@@ -359,12 +278,48 @@
       "season": null
     },
     {
-      "pitcher_id": 691587,
-      "pitcher_name": "Eury P\u00e9rez",
-      "starts": 22,
-      "sum_wp": 12.044079466262675,
-      "avg_wp": 0.5474581575573944,
-      "waa": 1.1547326771531354,
+      "pitcher_id": 605540,
+      "pitcher_name": "Brandon Woodruff",
+      "starts": 9,
+      "sum_wp": 5.098415122237899,
+      "avg_wp": 0.5664905691375444,
+      "waa": 0.6436823448749049,
+      "season": null
+    },
+    {
+      "pitcher_id": 669373,
+      "pitcher_name": "Tarik Skubal",
+      "starts": 19,
+      "sum_wp": 11.194205725860423,
+      "avg_wp": 0.5891687224137064,
+      "waa": 1.7897698625385479,
+      "season": null
+    },
+    {
+      "pitcher_id": 543037,
+      "pitcher_name": "Gerrit Cole",
+      "starts": 16,
+      "sum_wp": 9.132112890601551,
+      "avg_wp": 0.5707570556625969,
+      "waa": 1.2125879530673394,
+      "season": null
+    },
+    {
+      "pitcher_id": 663554,
+      "pitcher_name": "Casey Mize",
+      "starts": 19,
+      "sum_wp": 10.66152212645968,
+      "avg_wp": 0.5611327434978779,
+      "waa": 1.2570862631378068,
+      "season": null
+    },
+    {
+      "pitcher_id": 607259,
+      "pitcher_name": "Nick Martinez",
+      "starts": 24,
+      "sum_wp": 14.220982739346553,
+      "avg_wp": 0.5925409474727731,
+      "waa": 2.3416953330452404,
       "season": null
     },
     {
@@ -377,21 +332,66 @@
       "season": null
     },
     {
+      "pitcher_id": 801139,
+      "pitcher_name": "Payton Tolle",
+      "starts": 21,
+      "sum_wp": 11.886764766816643,
+      "avg_wp": 0.5660364174674593,
+      "waa": 1.4923882863029934,
+      "season": null
+    },
+    {
+      "pitcher_id": 527048,
+      "pitcher_name": "Mart\u00edn P\u00e9rez",
+      "starts": 20,
+      "sum_wp": 10.880450595621685,
+      "avg_wp": 0.5440225297810842,
+      "waa": 0.9810444237039218,
+      "season": null
+    },
+    {
+      "pitcher_id": 804267,
+      "pitcher_name": "Zac Thornton",
+      "starts": 9,
+      "sum_wp": 5.089946244272861,
+      "avg_wp": 0.5655495826969845,
+      "waa": 0.6352134669098674,
+      "season": null
+    },
+    {
+      "pitcher_id": 656876,
+      "pitcher_name": "Drew Rasmussen",
+      "starts": 24,
+      "sum_wp": 14.256051367643977,
+      "avg_wp": 0.5940021403184991,
+      "waa": 2.3767639613426663,
+      "season": null
+    },
+    {
+      "pitcher_id": 676917,
+      "pitcher_name": "Cade Cavalli",
+      "starts": 27,
+      "sum_wp": 14.707915672651184,
+      "avg_wp": 0.5447376175055995,
+      "waa": 1.3437173405622067,
+      "season": null
+    },
+    {
+      "pitcher_id": 691587,
+      "pitcher_name": "Eury P\u00e9rez",
+      "starts": 22,
+      "sum_wp": 12.044079466262675,
+      "avg_wp": 0.5474581575573944,
+      "waa": 1.1547326771531354,
+      "season": null
+    },
+    {
       "pitcher_id": 592662,
       "pitcher_name": "Robbie Ray",
       "starts": 24,
       "sum_wp": 13.19588971586265,
       "avg_wp": 0.5498287381609438,
       "waa": 1.316602309561334,
-      "season": null
-    },
-    {
-      "pitcher_id": 667755,
-      "pitcher_name": "Jos\u00e9 Soriano",
-      "starts": 25,
-      "sum_wp": 14.059279192104935,
-      "avg_wp": 0.5623711676841974,
-      "waa": 1.685021477207733,
       "season": null
     },
     {
@@ -404,12 +404,48 @@
       "season": null
     },
     {
-      "pitcher_id": 676917,
-      "pitcher_name": "Cade Cavalli",
-      "starts": 27,
-      "sum_wp": 14.707915672651184,
-      "avg_wp": 0.5447376175055995,
-      "waa": 1.3437173405622067,
+      "pitcher_id": 680732,
+      "pitcher_name": "Sean Burke",
+      "starts": 22,
+      "sum_wp": 11.542162621623977,
+      "avg_wp": 0.5246437555283626,
+      "waa": 0.6528158325144366,
+      "season": null
+    },
+    {
+      "pitcher_id": 672456,
+      "pitcher_name": "Keider Montero",
+      "starts": 21,
+      "sum_wp": 11.564488424698098,
+      "avg_wp": 0.5506899249856237,
+      "waa": 1.1701119441844452,
+      "season": null
+    },
+    {
+      "pitcher_id": 681517,
+      "pitcher_name": "Kyle Leahy",
+      "starts": 24,
+      "sum_wp": 13.141855803683146,
+      "avg_wp": 0.5475773251534645,
+      "waa": 1.2625683973818322,
+      "season": null
+    },
+    {
+      "pitcher_id": 667755,
+      "pitcher_name": "Jos\u00e9 Soriano",
+      "starts": 25,
+      "sum_wp": 14.059279192104935,
+      "avg_wp": 0.5623711676841974,
+      "waa": 1.685021477207733,
+      "season": null
+    },
+    {
+      "pitcher_id": 676106,
+      "pitcher_name": "Emerson Hancock",
+      "starts": 23,
+      "sum_wp": 12.877229178870735,
+      "avg_wp": 0.5598795295161189,
+      "waa": 1.4929120811653065,
       "season": null
     },
     {
@@ -440,102 +476,12 @@
       "season": null
     },
     {
-      "pitcher_id": 681517,
-      "pitcher_name": "Kyle Leahy",
-      "starts": 24,
-      "sum_wp": 13.141855803683146,
-      "avg_wp": 0.5475773251534645,
-      "waa": 1.2625683973818322,
-      "season": null
-    },
-    {
-      "pitcher_id": 666200,
-      "pitcher_name": "Jes\u00fas Luzardo",
-      "starts": 26,
-      "sum_wp": 14.916732433438726,
-      "avg_wp": 0.5737204782091818,
-      "waa": 2.0475044099456348,
-      "season": null
-    },
-    {
-      "pitcher_id": 650633,
-      "pitcher_name": "Michael King",
-      "starts": 26,
-      "sum_wp": 14.330882819243099,
-      "avg_wp": 0.5511878007401192,
-      "waa": 1.4616547957500075,
-      "season": null
-    },
-    {
-      "pitcher_id": 680732,
-      "pitcher_name": "Sean Burke",
-      "starts": 22,
-      "sum_wp": 11.542162621623977,
-      "avg_wp": 0.5246437555283626,
-      "waa": 0.6528158325144366,
-      "season": null
-    },
-    {
-      "pitcher_id": 676106,
-      "pitcher_name": "Emerson Hancock",
-      "starts": 23,
-      "sum_wp": 12.877229178870735,
-      "avg_wp": 0.5598795295161189,
-      "waa": 1.4929120811653065,
-      "season": null
-    },
-    {
       "pitcher_id": 669302,
       "pitcher_name": "Logan Gilbert",
       "starts": 25,
       "sum_wp": 14.153877944921842,
       "avg_wp": 0.5661551177968737,
       "waa": 1.7796202300246393,
-      "season": null
-    },
-    {
-      "pitcher_id": 672456,
-      "pitcher_name": "Keider Montero",
-      "starts": 21,
-      "sum_wp": 11.564488424698098,
-      "avg_wp": 0.5506899249856237,
-      "waa": 1.1701119441844452,
-      "season": null
-    },
-    {
-      "pitcher_id": 645261,
-      "pitcher_name": "Sandy Alcantara",
-      "starts": 27,
-      "sum_wp": 15.547495363004886,
-      "avg_wp": 0.5758331615927735,
-      "waa": 2.1832970309159094,
-      "season": null
-    },
-    {
-      "pitcher_id": 624133,
-      "pitcher_name": "Ranger Suarez",
-      "starts": 22,
-      "sum_wp": 11.239768293868957,
-      "avg_wp": 0.5108985588122253,
-      "waa": 0.35042150475941436,
-      "season": null
-    },
-    {
-      "pitcher_id": 687562,
-      "pitcher_name": "Jake Bennett",
-      "starts": 14,
-      "sum_wp": 7.754940094265194,
-      "avg_wp": 0.5539242924475138,
-      "waa": 0.8253557739227593,
-      "season": null
-    },
-    {
-      "pitcher_id": 687064,
-      "pitcher_name": "Brandon Young",
-      "starts": 21,
-      "sum_wp": 11.231942595746961,
-      "avg_wp": 0.5348544093212839,
-      "waa": 0.8375661152333098,
       "season": null
     },
     {
@@ -548,30 +494,39 @@
       "season": null
     },
     {
+      "pitcher_id": 650633,
+      "pitcher_name": "Michael King",
+      "starts": 26,
+      "sum_wp": 14.330882819243099,
+      "avg_wp": 0.5511878007401192,
+      "waa": 1.4616547957500075,
+      "season": null
+    },
+    {
+      "pitcher_id": 645261,
+      "pitcher_name": "Sandy Alcantara",
+      "starts": 27,
+      "sum_wp": 15.547495363004886,
+      "avg_wp": 0.5758331615927735,
+      "waa": 2.1832970309159094,
+      "season": null
+    },
+    {
+      "pitcher_id": 666200,
+      "pitcher_name": "Jes\u00fas Luzardo",
+      "starts": 26,
+      "sum_wp": 14.916732433438726,
+      "avg_wp": 0.5737204782091818,
+      "waa": 2.0475044099456348,
+      "season": null
+    },
+    {
       "pitcher_id": 700241,
       "pitcher_name": "Michael McGreevy",
       "starts": 25,
       "sum_wp": 13.812597396156754,
       "avg_wp": 0.5525038958462701,
       "waa": 1.4383396812595532,
-      "season": null
-    },
-    {
-      "pitcher_id": 680736,
-      "pitcher_name": "Justin Wrobleski",
-      "starts": 20,
-      "sum_wp": 11.452548613667345,
-      "avg_wp": 0.5726274306833672,
-      "waa": 1.5531424417495834,
-      "season": null
-    },
-    {
-      "pitcher_id": 681035,
-      "pitcher_name": "Christian Scott",
-      "starts": 18,
-      "sum_wp": 8.895053722384736,
-      "avg_wp": 0.49416965124359646,
-      "waa": -0.014411832341250874,
       "season": null
     },
     {
@@ -584,21 +539,39 @@
       "season": null
     },
     {
-      "pitcher_id": 674841,
-      "pitcher_name": "Andrew Alvarez",
-      "starts": 11,
-      "sum_wp": 5.147469762333646,
-      "avg_wp": 0.467951796575786,
-      "waa": -0.2972036322211248,
+      "pitcher_id": 687064,
+      "pitcher_name": "Brandon Young",
+      "starts": 21,
+      "sum_wp": 11.231942595746961,
+      "avg_wp": 0.5348544093212839,
+      "waa": 0.8375661152333098,
       "season": null
     },
     {
-      "pitcher_id": 592288,
-      "pitcher_name": "Kent Emanuel",
-      "starts": 1,
-      "sum_wp": 0.5350740851001995,
-      "avg_wp": 0.5350740851001995,
-      "waa": 0.040103776504311295,
+      "pitcher_id": 681035,
+      "pitcher_name": "Christian Scott",
+      "starts": 18,
+      "sum_wp": 8.895053722384736,
+      "avg_wp": 0.49416965124359646,
+      "waa": -0.014411832341250874,
+      "season": null
+    },
+    {
+      "pitcher_id": 680736,
+      "pitcher_name": "Justin Wrobleski",
+      "starts": 20,
+      "sum_wp": 11.452548613667345,
+      "avg_wp": 0.5726274306833672,
+      "waa": 1.5531424417495834,
+      "season": null
+    },
+    {
+      "pitcher_id": 687562,
+      "pitcher_name": "Jake Bennett",
+      "starts": 14,
+      "sum_wp": 7.754940094265194,
+      "avg_wp": 0.5539242924475138,
+      "waa": 0.8253557739227593,
       "season": null
     },
     {
@@ -611,21 +584,21 @@
       "season": null
     },
     {
-      "pitcher_id": 669467,
-      "pitcher_name": "Andre Pallante",
-      "starts": 24,
-      "sum_wp": 13.320472236375295,
-      "avg_wp": 0.5550196765156373,
-      "waa": 1.4411848300739833,
+      "pitcher_id": 624133,
+      "pitcher_name": "Ranger Suarez",
+      "starts": 22,
+      "sum_wp": 11.239768293868957,
+      "avg_wp": 0.5108985588122253,
+      "waa": 0.35042150475941436,
       "season": null
     },
     {
-      "pitcher_id": 605483,
-      "pitcher_name": "Blake Snell",
-      "starts": 3,
-      "sum_wp": 1.629758476511789,
-      "avg_wp": 0.5432528255039296,
-      "waa": 0.14484755072412447,
+      "pitcher_id": 592288,
+      "pitcher_name": "Kent Emanuel",
+      "starts": 1,
+      "sum_wp": 0.5350740851001995,
+      "avg_wp": 0.5350740851001995,
+      "waa": 0.040103776504311295,
       "season": null
     },
     {
@@ -638,30 +611,39 @@
       "season": null
     },
     {
+      "pitcher_id": 674841,
+      "pitcher_name": "Andrew Alvarez",
+      "starts": 11,
+      "sum_wp": 5.147469762333646,
+      "avg_wp": 0.467951796575786,
+      "waa": -0.2972036322211248,
+      "season": null
+    },
+    {
+      "pitcher_id": 605483,
+      "pitcher_name": "Blake Snell",
+      "starts": 3,
+      "sum_wp": 1.629758476511789,
+      "avg_wp": 0.5432528255039296,
+      "waa": 0.14484755072412447,
+      "season": null
+    },
+    {
+      "pitcher_id": 669467,
+      "pitcher_name": "Andre Pallante",
+      "starts": 24,
+      "sum_wp": 13.320472236375295,
+      "avg_wp": 0.5550196765156373,
+      "waa": 1.4411848300739833,
+      "season": null
+    },
+    {
       "pitcher_id": 672282,
       "pitcher_name": "Reid Detmers",
       "starts": 26,
       "sum_wp": 14.094503163008739,
       "avg_wp": 0.5420962755003361,
       "waa": 1.2252751395156487,
-      "season": null
-    },
-    {
-      "pitcher_id": 686613,
-      "pitcher_name": "Hunter Brown",
-      "starts": 13,
-      "sum_wp": 6.654642084005869,
-      "avg_wp": 0.5118955449235284,
-      "waa": 0.22002807225932208,
-      "season": null
-    },
-    {
-      "pitcher_id": 643377,
-      "pitcher_name": "Griffin Jax",
-      "starts": 18,
-      "sum_wp": 9.949928694281605,
-      "avg_wp": 0.552773816348978,
-      "waa": 1.0404631395556159,
       "season": null
     },
     {
@@ -683,6 +665,51 @@
       "season": null
     },
     {
+      "pitcher_id": 690928,
+      "pitcher_name": "Hunter Dobbins",
+      "starts": 8,
+      "sum_wp": 3.928309791078055,
+      "avg_wp": 0.4910387238847569,
+      "waa": -0.031452677689050634,
+      "season": null
+    },
+    {
+      "pitcher_id": 702056,
+      "pitcher_name": "Trey Yesavage",
+      "starts": 18,
+      "sum_wp": 9.275725653870138,
+      "avg_wp": 0.5153180918816743,
+      "waa": 0.36626009914415003,
+      "season": null
+    },
+    {
+      "pitcher_id": 668909,
+      "pitcher_name": "Gavin Williams",
+      "starts": 26,
+      "sum_wp": 14.026648287488799,
+      "avg_wp": 0.539486472595723,
+      "waa": 1.1574202639957094,
+      "season": null
+    },
+    {
+      "pitcher_id": 643377,
+      "pitcher_name": "Griffin Jax",
+      "starts": 18,
+      "sum_wp": 9.949928694281605,
+      "avg_wp": 0.552773816348978,
+      "waa": 1.0404631395556159,
+      "season": null
+    },
+    {
+      "pitcher_id": 686613,
+      "pitcher_name": "Hunter Brown",
+      "starts": 13,
+      "sum_wp": 6.654642084005869,
+      "avg_wp": 0.5118955449235284,
+      "waa": 0.22002807225932208,
+      "season": null
+    },
+    {
       "pitcher_id": 677952,
       "pitcher_name": "Braxton Ashcraft",
       "starts": 25,
@@ -701,12 +728,21 @@
       "season": null
     },
     {
-      "pitcher_id": 682243,
-      "pitcher_name": "Bryce Miller",
-      "starts": 15,
-      "sum_wp": 8.092778777715896,
-      "avg_wp": 0.5395185851810598,
-      "waa": 0.6682241487775716,
+      "pitcher_id": 691946,
+      "pitcher_name": "George Klassen",
+      "starts": 5,
+      "sum_wp": 2.4443521160592123,
+      "avg_wp": 0.4888704232118425,
+      "waa": -0.0304994269202285,
+      "season": null
+    },
+    {
+      "pitcher_id": 657277,
+      "pitcher_name": "Logan Webb",
+      "starts": 23,
+      "sum_wp": 12.383978104471016,
+      "avg_wp": 0.5384338306291746,
+      "waa": 0.9996610067655894,
       "season": null
     },
     {
@@ -719,30 +755,21 @@
       "season": null
     },
     {
-      "pitcher_id": 691946,
-      "pitcher_name": "George Klassen",
-      "starts": 5,
-      "sum_wp": 2.4443521160592123,
-      "avg_wp": 0.4888704232118425,
-      "waa": -0.0304994269202285,
+      "pitcher_id": 676282,
+      "pitcher_name": "Joey Cantillo",
+      "starts": 27,
+      "sum_wp": 13.877464831467035,
+      "avg_wp": 0.5139801789432236,
+      "waa": 0.5132664993780572,
       "season": null
     },
     {
-      "pitcher_id": 668909,
-      "pitcher_name": "Gavin Williams",
-      "starts": 26,
-      "sum_wp": 14.026648287488799,
-      "avg_wp": 0.539486472595723,
-      "waa": 1.1574202639957094,
-      "season": null
-    },
-    {
-      "pitcher_id": 690928,
-      "pitcher_name": "Hunter Dobbins",
-      "starts": 8,
-      "sum_wp": 3.928309791078055,
-      "avg_wp": 0.4910387238847569,
-      "waa": -0.031452677689050634,
+      "pitcher_id": 682243,
+      "pitcher_name": "Bryce Miller",
+      "starts": 15,
+      "sum_wp": 8.092778777715896,
+      "avg_wp": 0.5395185851810598,
+      "waa": 0.6682241487775716,
       "season": null
     },
     {
@@ -773,57 +800,12 @@
       "season": null
     },
     {
-      "pitcher_id": 664074,
-      "pitcher_name": "Cody Ponce",
-      "starts": 1,
-      "sum_wp": 0.4201590141730142,
-      "avg_wp": 0.4201590141730142,
-      "waa": -0.07481129442287399,
-      "season": null
-    },
-    {
-      "pitcher_id": 702056,
-      "pitcher_name": "Trey Yesavage",
-      "starts": 18,
-      "sum_wp": 9.275725653870138,
-      "avg_wp": 0.5153180918816743,
-      "waa": 0.36626009914415003,
-      "season": null
-    },
-    {
-      "pitcher_id": 657277,
-      "pitcher_name": "Logan Webb",
-      "starts": 23,
-      "sum_wp": 12.383978104471016,
-      "avg_wp": 0.5384338306291746,
-      "waa": 0.9996610067655894,
-      "season": null
-    },
-    {
-      "pitcher_id": 694973,
-      "pitcher_name": "Paul Skenes",
-      "starts": 26,
-      "sum_wp": 13.458274912660729,
-      "avg_wp": 0.5176259581792588,
-      "waa": 0.5890468891676358,
-      "season": null
-    },
-    {
       "pitcher_id": 671737,
       "pitcher_name": "Taj Bradley",
       "starts": 25,
       "sum_wp": 12.855810483521758,
       "avg_wp": 0.5142324193408703,
       "waa": 0.4815527686245543,
-      "season": null
-    },
-    {
-      "pitcher_id": 641743,
-      "pitcher_name": "Anthony Kay",
-      "starts": 24,
-      "sum_wp": 12.239639804672485,
-      "avg_wp": 0.5099849918613536,
-      "waa": 0.36035239837117145,
       "season": null
     },
     {
@@ -836,6 +818,15 @@
       "season": null
     },
     {
+      "pitcher_id": 669358,
+      "pitcher_name": "Shane Baz",
+      "starts": 25,
+      "sum_wp": 12.514311452933407,
+      "avg_wp": 0.5005724581173363,
+      "waa": 0.1400537380362043,
+      "season": null
+    },
+    {
       "pitcher_id": 693821,
       "pitcher_name": "Bryce Elder",
       "starts": 24,
@@ -845,57 +836,30 @@
       "season": null
     },
     {
-      "pitcher_id": 676282,
-      "pitcher_name": "Joey Cantillo",
-      "starts": 27,
-      "sum_wp": 13.877464831467035,
-      "avg_wp": 0.5139801789432236,
-      "waa": 0.5132664993780572,
+      "pitcher_id": 664074,
+      "pitcher_name": "Cody Ponce",
+      "starts": 1,
+      "sum_wp": 0.4201590141730142,
+      "avg_wp": 0.4201590141730142,
+      "waa": -0.07481129442287399,
       "season": null
     },
     {
-      "pitcher_id": 676440,
-      "pitcher_name": "Tanner Bibee",
+      "pitcher_id": 694973,
+      "pitcher_name": "Paul Skenes",
       "starts": 26,
-      "sum_wp": 13.483252463505893,
-      "avg_wp": 0.5185866332117651,
-      "waa": 0.614024440012803,
+      "sum_wp": 13.458274912660729,
+      "avg_wp": 0.5176259581792588,
+      "waa": 0.5890468891676358,
       "season": null
     },
     {
-      "pitcher_id": 663460,
-      "pitcher_name": "Kris Bubic",
-      "starts": 9,
-      "sum_wp": 4.579351183155599,
-      "avg_wp": 0.5088167981283999,
-      "waa": 0.1246184057926048,
-      "season": null
-    },
-    {
-      "pitcher_id": 571510,
-      "pitcher_name": "Matthew Boyd",
-      "starts": 15,
-      "sum_wp": 7.552929376492431,
-      "avg_wp": 0.5035286250994954,
-      "waa": 0.128374747554108,
-      "season": null
-    },
-    {
-      "pitcher_id": 702070,
-      "pitcher_name": "Noah Cameron",
+      "pitcher_id": 641743,
+      "pitcher_name": "Anthony Kay",
       "starts": 24,
-      "sum_wp": 12.14204698387902,
-      "avg_wp": 0.5059186243282925,
-      "waa": 0.2627595775777012,
-      "season": null
-    },
-    {
-      "pitcher_id": 605288,
-      "pitcher_name": "Adrian Houser",
-      "starts": 15,
-      "sum_wp": 6.298579605917053,
-      "avg_wp": 0.4199053070611368,
-      "waa": -1.12597502302127,
+      "sum_wp": 12.239639804672485,
+      "avg_wp": 0.5099849918613536,
+      "waa": 0.36035239837117145,
       "season": null
     },
     {
@@ -908,75 +872,12 @@
       "season": null
     },
     {
-      "pitcher_id": 693433,
-      "pitcher_name": "Bryan Woo",
+      "pitcher_id": 702070,
+      "pitcher_name": "Noah Cameron",
       "starts": 24,
-      "sum_wp": 12.601924168168457,
-      "avg_wp": 0.5250801736736858,
-      "waa": 0.7226367618671447,
-      "season": null
-    },
-    {
-      "pitcher_id": 669358,
-      "pitcher_name": "Shane Baz",
-      "starts": 25,
-      "sum_wp": 12.514311452933407,
-      "avg_wp": 0.5005724581173363,
-      "waa": 0.1400537380362043,
-      "season": null
-    },
-    {
-      "pitcher_id": 622663,
-      "pitcher_name": "Luis Severino",
-      "starts": 12,
-      "sum_wp": 5.998487240029406,
-      "avg_wp": 0.49987393666911717,
-      "waa": 0.058843536878747715,
-      "season": null
-    },
-    {
-      "pitcher_id": 681190,
-      "pitcher_name": "Randy V\u00e1squez",
-      "starts": 20,
-      "sum_wp": 10.029634339887707,
-      "avg_wp": 0.5014817169943854,
-      "waa": 0.1302281679699453,
-      "season": null
-    },
-    {
-      "pitcher_id": 683352,
-      "pitcher_name": "Mitch Bratt",
-      "starts": 8,
-      "sum_wp": 3.6716779248258793,
-      "avg_wp": 0.4589597406032349,
-      "waa": -0.28808454394122657,
-      "season": null
-    },
-    {
-      "pitcher_id": 694738,
-      "pitcher_name": "Landen Roupp",
-      "starts": 25,
-      "sum_wp": 12.394609111413047,
-      "avg_wp": 0.49578436445652185,
-      "waa": 0.0203513965158445,
-      "season": null
-    },
-    {
-      "pitcher_id": 664285,
-      "pitcher_name": "Framber Valdez",
-      "starts": 25,
-      "sum_wp": 12.889096840585012,
-      "avg_wp": 0.5155638736234005,
-      "waa": 0.5148391256878138,
-      "season": null
-    },
-    {
-      "pitcher_id": 669923,
-      "pitcher_name": "George Kirby",
-      "starts": 24,
-      "sum_wp": 12.226499040027292,
-      "avg_wp": 0.5094374600011372,
-      "waa": 0.34721163372597513,
+      "sum_wp": 12.14204698387902,
+      "avg_wp": 0.5059186243282925,
+      "waa": 0.2627595775777012,
       "season": null
     },
     {
@@ -989,30 +890,57 @@
       "season": null
     },
     {
-      "pitcher_id": 543135,
-      "pitcher_name": "Nathan Eovaldi",
-      "starts": 22,
-      "sum_wp": 11.038559986352107,
-      "avg_wp": 0.5017527266523685,
-      "waa": 0.1492131972425642,
-      "season": null
-    },
-    {
-      "pitcher_id": 669713,
-      "pitcher_name": "Hayden Wesneski",
-      "starts": 5,
-      "sum_wp": 2.467892960355965,
-      "avg_wp": 0.493578592071193,
-      "waa": -0.0069585826234759285,
-      "season": null
-    },
-    {
-      "pitcher_id": 663436,
-      "pitcher_name": "Davis Martin",
+      "pitcher_id": 693433,
+      "pitcher_name": "Bryan Woo",
       "starts": 24,
-      "sum_wp": 12.607044842562878,
-      "avg_wp": 0.5252935351067866,
-      "waa": 0.7277574362615609,
+      "sum_wp": 12.601924168168457,
+      "avg_wp": 0.5250801736736858,
+      "waa": 0.7226367618671447,
+      "season": null
+    },
+    {
+      "pitcher_id": 663460,
+      "pitcher_name": "Kris Bubic",
+      "starts": 9,
+      "sum_wp": 4.579351183155599,
+      "avg_wp": 0.5088167981283999,
+      "waa": 0.1246184057926048,
+      "season": null
+    },
+    {
+      "pitcher_id": 605288,
+      "pitcher_name": "Adrian Houser",
+      "starts": 15,
+      "sum_wp": 6.298579605917053,
+      "avg_wp": 0.4199053070611368,
+      "waa": -1.12597502302127,
+      "season": null
+    },
+    {
+      "pitcher_id": 676440,
+      "pitcher_name": "Tanner Bibee",
+      "starts": 26,
+      "sum_wp": 13.483252463505893,
+      "avg_wp": 0.5185866332117651,
+      "waa": 0.614024440012803,
+      "season": null
+    },
+    {
+      "pitcher_id": 669923,
+      "pitcher_name": "George Kirby",
+      "starts": 24,
+      "sum_wp": 12.226499040027292,
+      "avg_wp": 0.5094374600011372,
+      "waa": 0.34721163372597513,
+      "season": null
+    },
+    {
+      "pitcher_id": 571510,
+      "pitcher_name": "Matthew Boyd",
+      "starts": 15,
+      "sum_wp": 7.552929376492431,
+      "avg_wp": 0.5035286250994954,
+      "waa": 0.128374747554108,
       "season": null
     },
     {
@@ -1034,12 +962,84 @@
       "season": null
     },
     {
-      "pitcher_id": 687473,
-      "pitcher_name": "Ryan Gusto",
+      "pitcher_id": 683352,
+      "pitcher_name": "Mitch Bratt",
+      "starts": 8,
+      "sum_wp": 3.6716779248258793,
+      "avg_wp": 0.4589597406032349,
+      "waa": -0.28808454394122657,
+      "season": null
+    },
+    {
+      "pitcher_id": 543135,
+      "pitcher_name": "Nathan Eovaldi",
+      "starts": 22,
+      "sum_wp": 11.038559986352107,
+      "avg_wp": 0.5017527266523685,
+      "waa": 0.1492131972425642,
+      "season": null
+    },
+    {
+      "pitcher_id": 664285,
+      "pitcher_name": "Framber Valdez",
+      "starts": 25,
+      "sum_wp": 12.889096840585012,
+      "avg_wp": 0.5155638736234005,
+      "waa": 0.5148391256878138,
+      "season": null
+    },
+    {
+      "pitcher_id": 669713,
+      "pitcher_name": "Hayden Wesneski",
+      "starts": 5,
+      "sum_wp": 2.467892960355965,
+      "avg_wp": 0.493578592071193,
+      "waa": -0.0069585826234759285,
+      "season": null
+    },
+    {
+      "pitcher_id": 663436,
+      "pitcher_name": "Davis Martin",
+      "starts": 24,
+      "sum_wp": 12.607044842562878,
+      "avg_wp": 0.5252935351067866,
+      "waa": 0.7277574362615609,
+      "season": null
+    },
+    {
+      "pitcher_id": 681190,
+      "pitcher_name": "Randy V\u00e1squez",
+      "starts": 20,
+      "sum_wp": 10.029634339887707,
+      "avg_wp": 0.5014817169943854,
+      "waa": 0.1302281679699453,
+      "season": null
+    },
+    {
+      "pitcher_id": 808963,
+      "pitcher_name": "Roki Sasaki",
+      "starts": 22,
+      "sum_wp": 10.604472541121186,
+      "avg_wp": 0.4820214791418721,
+      "waa": -0.28487424798835137,
+      "season": null
+    },
+    {
+      "pitcher_id": 694738,
+      "pitcher_name": "Landen Roupp",
+      "starts": 25,
+      "sum_wp": 12.394609111413047,
+      "avg_wp": 0.49578436445652185,
+      "waa": 0.0203513965158445,
+      "season": null
+    },
+    {
+      "pitcher_id": 622663,
+      "pitcher_name": "Luis Severino",
       "starts": 12,
-      "sum_wp": 4.702882051490388,
-      "avg_wp": 0.391906837624199,
-      "waa": -1.2367616516602706,
+      "sum_wp": 5.998487240029406,
+      "avg_wp": 0.49987393666911717,
+      "waa": 0.058843536878747715,
       "season": null
     },
     {
@@ -1052,12 +1052,30 @@
       "season": null
     },
     {
+      "pitcher_id": 601713,
+      "pitcher_name": "Nick Pivetta",
+      "starts": 4,
+      "sum_wp": 1.9387552412898144,
+      "avg_wp": 0.4846888103224536,
+      "waa": -0.04112599309373871,
+      "season": null
+    },
+    {
       "pitcher_id": 663568,
       "pitcher_name": "Stephen Kolek",
       "starts": 10,
       "sum_wp": 5.344857361460478,
       "avg_wp": 0.5344857361460478,
       "waa": 0.3951542755015955,
+      "season": null
+    },
+    {
+      "pitcher_id": 702275,
+      "pitcher_name": "JR Ritchie",
+      "starts": 8,
+      "sum_wp": 3.159490875365013,
+      "avg_wp": 0.3949363594206266,
+      "waa": -0.8002715934020925,
       "season": null
     },
     {
@@ -1079,6 +1097,24 @@
       "season": null
     },
     {
+      "pitcher_id": 666157,
+      "pitcher_name": "Nick Lodolo",
+      "starts": 15,
+      "sum_wp": 7.0402150246011415,
+      "avg_wp": 0.46934766830674274,
+      "waa": -0.38433960433718045,
+      "season": null
+    },
+    {
+      "pitcher_id": 669456,
+      "pitcher_name": "Shane Bieber",
+      "starts": 11,
+      "sum_wp": 5.430374671063632,
+      "avg_wp": 0.49367042464214833,
+      "waa": -0.01429872349113892,
+      "season": null
+    },
+    {
       "pitcher_id": 676083,
       "pitcher_name": "Janson Junk",
       "starts": 18,
@@ -1088,39 +1124,39 @@
       "season": null
     },
     {
-      "pitcher_id": 601713,
-      "pitcher_name": "Nick Pivetta",
-      "starts": 4,
-      "sum_wp": 1.9387552412898144,
-      "avg_wp": 0.4846888103224536,
-      "waa": -0.04112599309373871,
+      "pitcher_id": 669160,
+      "pitcher_name": "Dustin May",
+      "starts": 24,
+      "sum_wp": 12.094572107251436,
+      "avg_wp": 0.5039405044688098,
+      "waa": 0.21528470095011937,
       "season": null
     },
     {
-      "pitcher_id": 808963,
-      "pitcher_name": "Roki Sasaki",
-      "starts": 22,
-      "sum_wp": 10.604472541121186,
-      "avg_wp": 0.4820214791418721,
-      "waa": -0.28487424798835137,
+      "pitcher_id": 656427,
+      "pitcher_name": "Jack Flaherty",
+      "starts": 19,
+      "sum_wp": 8.667632204763365,
+      "avg_wp": 0.456191168671756,
+      "waa": -0.7368036585585123,
       "season": null
     },
     {
-      "pitcher_id": 702275,
-      "pitcher_name": "JR Ritchie",
-      "starts": 8,
-      "sum_wp": 3.159490875365013,
-      "avg_wp": 0.3949363594206266,
-      "waa": -0.8002715934020925,
+      "pitcher_id": 687473,
+      "pitcher_name": "Ryan Gusto",
+      "starts": 12,
+      "sum_wp": 4.702882051490388,
+      "avg_wp": 0.391906837624199,
+      "waa": -1.2367616516602706,
       "season": null
     },
     {
-      "pitcher_id": 666157,
-      "pitcher_name": "Nick Lodolo",
-      "starts": 15,
-      "sum_wp": 7.0402150246011415,
-      "avg_wp": 0.46934766830674274,
-      "waa": -0.38433960433718045,
+      "pitcher_id": 592332,
+      "pitcher_name": "Kevin Gausman",
+      "starts": 26,
+      "sum_wp": 12.699335711404876,
+      "avg_wp": 0.4884359889001875,
+      "waa": -0.16989231208821926,
       "season": null
     },
     {
@@ -1142,48 +1178,12 @@
       "season": null
     },
     {
-      "pitcher_id": 669160,
-      "pitcher_name": "Dustin May",
-      "starts": 24,
-      "sum_wp": 12.094572107251436,
-      "avg_wp": 0.5039405044688098,
-      "waa": 0.21528470095011937,
-      "season": null
-    },
-    {
-      "pitcher_id": 669456,
-      "pitcher_name": "Shane Bieber",
-      "starts": 11,
-      "sum_wp": 5.430374671063632,
-      "avg_wp": 0.49367042464214833,
-      "waa": -0.01429872349113892,
-      "season": null
-    },
-    {
-      "pitcher_id": 592332,
-      "pitcher_name": "Kevin Gausman",
-      "starts": 26,
-      "sum_wp": 12.699335711404876,
-      "avg_wp": 0.4884359889001875,
-      "waa": -0.16989231208821926,
-      "season": null
-    },
-    {
-      "pitcher_id": 656427,
-      "pitcher_name": "Jack Flaherty",
-      "starts": 19,
-      "sum_wp": 8.667632204763365,
-      "avg_wp": 0.456191168671756,
-      "waa": -0.7368036585585123,
-      "season": null
-    },
-    {
-      "pitcher_id": 607067,
-      "pitcher_name": "Colin Rea",
-      "starts": 19,
-      "sum_wp": 9.469310866174517,
-      "avg_wp": 0.49838478243023776,
-      "waa": 0.06487500285264036,
+      "pitcher_id": 663903,
+      "pitcher_name": "Brady Singer",
+      "starts": 25,
+      "sum_wp": 11.310927528573039,
+      "avg_wp": 0.45243710114292157,
+      "waa": -1.0633301863241662,
       "season": null
     },
     {
@@ -1196,30 +1196,12 @@
       "season": null
     },
     {
-      "pitcher_id": 663903,
-      "pitcher_name": "Brady Singer",
-      "starts": 25,
-      "sum_wp": 11.310927528573039,
-      "avg_wp": 0.45243710114292157,
-      "waa": -1.0633301863241662,
-      "season": null
-    },
-    {
       "pitcher_id": 607625,
       "pitcher_name": "Seth Lugo",
       "starts": 26,
       "sum_wp": 12.272040955168373,
       "avg_wp": 0.4720015751987836,
       "waa": -0.5971870683247197,
-      "season": null
-    },
-    {
-      "pitcher_id": 608372,
-      "pitcher_name": "Tomoyuki Sugano",
-      "starts": 22,
-      "sum_wp": 10.391860817841062,
-      "avg_wp": 0.4723573099018665,
-      "waa": -0.4974859712684774,
       "season": null
     },
     {
@@ -1232,21 +1214,30 @@
       "season": null
     },
     {
-      "pitcher_id": 663776,
-      "pitcher_name": "Patrick Sandoval",
-      "starts": 7,
-      "sum_wp": 3.0429943059697346,
-      "avg_wp": 0.4347134722813907,
-      "waa": -0.4217978542014827,
+      "pitcher_id": 607067,
+      "pitcher_name": "Colin Rea",
+      "starts": 19,
+      "sum_wp": 9.469310866174517,
+      "avg_wp": 0.49838478243023776,
+      "waa": 0.06487500285264036,
       "season": null
     },
     {
-      "pitcher_id": 688107,
-      "pitcher_name": "Robert Gasser",
-      "starts": 15,
-      "sum_wp": 6.9326183970051245,
-      "avg_wp": 0.4621745598003416,
-      "waa": -0.49193623193319885,
+      "pitcher_id": 683003,
+      "pitcher_name": "Jared Jones",
+      "starts": 14,
+      "sum_wp": 6.313731439353735,
+      "avg_wp": 0.4509808170966954,
+      "waa": -0.6158528809886998,
+      "season": null
+    },
+    {
+      "pitcher_id": 608372,
+      "pitcher_name": "Tomoyuki Sugano",
+      "starts": 22,
+      "sum_wp": 10.391860817841062,
+      "avg_wp": 0.4723573099018665,
+      "waa": -0.4974859712684774,
       "season": null
     },
     {
@@ -1268,48 +1259,12 @@
       "season": null
     },
     {
-      "pitcher_id": 702474,
-      "pitcher_name": "Mike Paredes",
-      "starts": 5,
-      "sum_wp": 2.054991210799286,
-      "avg_wp": 0.41099824215985714,
-      "waa": -0.41986033218015556,
-      "season": null
-    },
-    {
-      "pitcher_id": 695611,
-      "pitcher_name": "Gage Jump",
-      "starts": 16,
-      "sum_wp": 7.600723882022863,
-      "avg_wp": 0.47504524262642894,
-      "waa": -0.3188010555113479,
-      "season": null
-    },
-    {
-      "pitcher_id": 683003,
-      "pitcher_name": "Jared Jones",
-      "starts": 14,
-      "sum_wp": 6.313731439353735,
-      "avg_wp": 0.4509808170966954,
-      "waa": -0.6158528809886998,
-      "season": null
-    },
-    {
-      "pitcher_id": 641778,
-      "pitcher_name": "Eric Lauer",
-      "starts": 17,
-      "sum_wp": 7.7654142544567994,
-      "avg_wp": 0.45678907379157646,
-      "waa": -0.6490809916733002,
-      "season": null
-    },
-    {
-      "pitcher_id": 814490,
-      "pitcher_name": "Ethan Pecko",
-      "starts": 1,
-      "sum_wp": 0.3623207073335411,
-      "avg_wp": 0.3623207073335411,
-      "waa": -0.1326496012623471,
+      "pitcher_id": 663776,
+      "pitcher_name": "Patrick Sandoval",
+      "starts": 7,
+      "sum_wp": 3.0429943059697346,
+      "avg_wp": 0.4347134722813907,
+      "waa": -0.4217978542014827,
       "season": null
     },
     {
@@ -1322,21 +1277,21 @@
       "season": null
     },
     {
-      "pitcher_id": 641793,
-      "pitcher_name": "Zack Littell",
-      "starts": 14,
-      "sum_wp": 5.812071417676518,
-      "avg_wp": 0.41514795840546553,
-      "waa": -1.117512902665918,
+      "pitcher_id": 641778,
+      "pitcher_name": "Eric Lauer",
+      "starts": 17,
+      "sum_wp": 7.7654142544567994,
+      "avg_wp": 0.45678907379157646,
+      "waa": -0.6490809916733002,
       "season": null
     },
     {
-      "pitcher_id": 650644,
-      "pitcher_name": "Aaron Civale",
-      "starts": 15,
-      "sum_wp": 6.900845346513703,
-      "avg_wp": 0.4600563564342469,
-      "waa": -0.5237092824246188,
+      "pitcher_id": 702474,
+      "pitcher_name": "Mike Paredes",
+      "starts": 5,
+      "sum_wp": 2.054991210799286,
+      "avg_wp": 0.41099824215985714,
+      "waa": -0.41986033218015556,
       "season": null
     },
     {
@@ -1349,12 +1304,21 @@
       "season": null
     },
     {
-      "pitcher_id": 669194,
-      "pitcher_name": "Ryne Nelson",
+      "pitcher_id": 688107,
+      "pitcher_name": "Robert Gasser",
       "starts": 15,
-      "sum_wp": 7.162751014230894,
-      "avg_wp": 0.4775167342820596,
-      "waa": -0.2618036147074297,
+      "sum_wp": 6.9326183970051245,
+      "avg_wp": 0.4621745598003416,
+      "waa": -0.49193623193319885,
+      "season": null
+    },
+    {
+      "pitcher_id": 814490,
+      "pitcher_name": "Ethan Pecko",
+      "starts": 1,
+      "sum_wp": 0.3623207073335411,
+      "avg_wp": 0.3623207073335411,
+      "waa": -0.1326496012623471,
       "season": null
     },
     {
@@ -1364,6 +1328,51 @@
       "sum_wp": 9.031277297945651,
       "avg_wp": 0.45156386489728256,
       "waa": -0.8681288739721126,
+      "season": null
+    },
+    {
+      "pitcher_id": 669194,
+      "pitcher_name": "Ryne Nelson",
+      "starts": 15,
+      "sum_wp": 7.162751014230894,
+      "avg_wp": 0.4775167342820596,
+      "waa": -0.2618036147074297,
+      "season": null
+    },
+    {
+      "pitcher_id": 669461,
+      "pitcher_name": "Matthew Liberatore",
+      "starts": 25,
+      "sum_wp": 11.378604195495512,
+      "avg_wp": 0.4551441678198205,
+      "waa": -0.9956535194016926,
+      "season": null
+    },
+    {
+      "pitcher_id": 650644,
+      "pitcher_name": "Aaron Civale",
+      "starts": 15,
+      "sum_wp": 6.900845346513703,
+      "avg_wp": 0.4600563564342469,
+      "waa": -0.5237092824246188,
+      "season": null
+    },
+    {
+      "pitcher_id": 695611,
+      "pitcher_name": "Gage Jump",
+      "starts": 16,
+      "sum_wp": 7.600723882022863,
+      "avg_wp": 0.47504524262642894,
+      "waa": -0.3188010555113479,
+      "season": null
+    },
+    {
+      "pitcher_id": 641793,
+      "pitcher_name": "Zack Littell",
+      "starts": 14,
+      "sum_wp": 5.812071417676518,
+      "avg_wp": 0.41514795840546553,
+      "waa": -1.117512902665918,
       "season": null
     },
     {
@@ -1385,33 +1394,6 @@
       "season": null
     },
     {
-      "pitcher_id": 605400,
-      "pitcher_name": "Aaron Nola",
-      "starts": 26,
-      "sum_wp": 11.582528454241844,
-      "avg_wp": 0.44548186362468634,
-      "waa": -1.2866995692512497,
-      "season": null
-    },
-    {
-      "pitcher_id": 669461,
-      "pitcher_name": "Matthew Liberatore",
-      "starts": 25,
-      "sum_wp": 11.378604195495512,
-      "avg_wp": 0.4551441678198205,
-      "waa": -0.9956535194016926,
-      "season": null
-    },
-    {
-      "pitcher_id": 686790,
-      "pitcher_name": "Trevor McDonald",
-      "starts": 14,
-      "sum_wp": 6.638664798802064,
-      "avg_wp": 0.474190342771576,
-      "waa": -0.29091952154037076,
-      "season": null
-    },
-    {
       "pitcher_id": 605135,
       "pitcher_name": "Chris Bassitt",
       "starts": 12,
@@ -1421,57 +1403,12 @@
       "season": null
     },
     {
-      "pitcher_id": 677944,
-      "pitcher_name": "Slade Cecconi",
-      "starts": 21,
-      "sum_wp": 9.317077922151492,
-      "avg_wp": 0.44367037724530917,
-      "waa": -1.07729855836216,
-      "season": null
-    },
-    {
-      "pitcher_id": 671212,
-      "pitcher_name": "Joe Boyle",
-      "starts": 3,
-      "sum_wp": 1.3256561262488886,
-      "avg_wp": 0.4418853754162962,
-      "waa": -0.15925479953877597,
-      "season": null
-    },
-    {
-      "pitcher_id": 608337,
-      "pitcher_name": "Lucas Giolito",
-      "starts": 5,
-      "sum_wp": 2.217037443597215,
-      "avg_wp": 0.44340748871944297,
-      "waa": -0.2578140993822261,
-      "season": null
-    },
-    {
-      "pitcher_id": 500779,
-      "pitcher_name": "Jose Quintana",
-      "starts": 9,
-      "sum_wp": 3.908910001426543,
-      "avg_wp": 0.4343233334918381,
-      "waa": -0.5458227759364509,
-      "season": null
-    },
-    {
-      "pitcher_id": 687075,
-      "pitcher_name": "Brandon Sproat",
-      "starts": 19,
-      "sum_wp": 7.81712474238893,
-      "avg_wp": 0.41142761802046995,
-      "waa": -1.5873111209329462,
-      "season": null
-    },
-    {
-      "pitcher_id": 695076,
-      "pitcher_name": "Rhett Lowder",
-      "starts": 19,
-      "sum_wp": 8.638622497158547,
-      "avg_wp": 0.454664341955713,
-      "waa": -0.765813366163328,
+      "pitcher_id": 686790,
+      "pitcher_name": "Trevor McDonald",
+      "starts": 14,
+      "sum_wp": 6.638664798802064,
+      "avg_wp": 0.474190342771576,
+      "waa": -0.29091952154037076,
       "season": null
     },
     {
@@ -1493,21 +1430,39 @@
       "season": null
     },
     {
-      "pitcher_id": 689441,
-      "pitcher_name": "Coleman Crow",
-      "starts": 4,
-      "sum_wp": 1.711802110646004,
-      "avg_wp": 0.427950527661501,
-      "waa": -0.26807912373754894,
+      "pitcher_id": 677944,
+      "pitcher_name": "Slade Cecconi",
+      "starts": 21,
+      "sum_wp": 9.317077922151492,
+      "avg_wp": 0.44367037724530917,
+      "waa": -1.07729855836216,
       "season": null
     },
     {
-      "pitcher_id": 686218,
-      "pitcher_name": "Emmet Sheehan",
-      "starts": 20,
-      "sum_wp": 8.533835017864071,
-      "avg_wp": 0.42669175089320355,
-      "waa": -1.3655711540536957,
+      "pitcher_id": 695076,
+      "pitcher_name": "Rhett Lowder",
+      "starts": 19,
+      "sum_wp": 8.638622497158547,
+      "avg_wp": 0.454664341955713,
+      "waa": -0.765813366163328,
+      "season": null
+    },
+    {
+      "pitcher_id": 500779,
+      "pitcher_name": "Jose Quintana",
+      "starts": 9,
+      "sum_wp": 3.908910001426543,
+      "avg_wp": 0.4343233334918381,
+      "waa": -0.5458227759364509,
+      "season": null
+    },
+    {
+      "pitcher_id": 687075,
+      "pitcher_name": "Brandon Sproat",
+      "starts": 19,
+      "sum_wp": 7.81712474238893,
+      "avg_wp": 0.41142761802046995,
+      "waa": -1.5873111209329462,
       "season": null
     },
     {
@@ -1520,12 +1475,93 @@
       "season": null
     },
     {
+      "pitcher_id": 671212,
+      "pitcher_name": "Joe Boyle",
+      "starts": 3,
+      "sum_wp": 1.3256561262488886,
+      "avg_wp": 0.4418853754162962,
+      "waa": -0.15925479953877597,
+      "season": null
+    },
+    {
       "pitcher_id": 683004,
       "pitcher_name": "Jack Leiter",
       "starts": 15,
       "sum_wp": 6.294212807519316,
       "avg_wp": 0.4196141871679544,
       "waa": -1.1303418214190073,
+      "season": null
+    },
+    {
+      "pitcher_id": 689441,
+      "pitcher_name": "Coleman Crow",
+      "starts": 4,
+      "sum_wp": 1.711802110646004,
+      "avg_wp": 0.427950527661501,
+      "waa": -0.26807912373754894,
+      "season": null
+    },
+    {
+      "pitcher_id": 656849,
+      "pitcher_name": "David Peterson",
+      "starts": 16,
+      "sum_wp": 7.302920043632648,
+      "avg_wp": 0.4564325027270405,
+      "waa": -0.6166048939015636,
+      "season": null
+    },
+    {
+      "pitcher_id": 686218,
+      "pitcher_name": "Emmet Sheehan",
+      "starts": 20,
+      "sum_wp": 8.533835017864071,
+      "avg_wp": 0.42669175089320355,
+      "waa": -1.3655711540536957,
+      "season": null
+    },
+    {
+      "pitcher_id": 608337,
+      "pitcher_name": "Lucas Giolito",
+      "starts": 5,
+      "sum_wp": 2.217037443597215,
+      "avg_wp": 0.44340748871944297,
+      "waa": -0.2578140993822261,
+      "season": null
+    },
+    {
+      "pitcher_id": 675911,
+      "pitcher_name": "Spencer Strider",
+      "starts": 8,
+      "sum_wp": 3.701636789281315,
+      "avg_wp": 0.4627045986601644,
+      "waa": -0.25812567948579,
+      "season": null
+    },
+    {
+      "pitcher_id": 518876,
+      "pitcher_name": "Merrill Kelly",
+      "starts": 23,
+      "sum_wp": 10.469082510432447,
+      "avg_wp": 0.4551775004535846,
+      "waa": -0.9152345872729808,
+      "season": null
+    },
+    {
+      "pitcher_id": 605400,
+      "pitcher_name": "Aaron Nola",
+      "starts": 26,
+      "sum_wp": 11.582528454241844,
+      "avg_wp": 0.44548186362468634,
+      "waa": -1.2866995692512497,
+      "season": null
+    },
+    {
+      "pitcher_id": 665152,
+      "pitcher_name": "Dean Kremer",
+      "starts": 10,
+      "sum_wp": 4.421616684687554,
+      "avg_wp": 0.4421616684687554,
+      "waa": -0.5280864012713272,
       "season": null
     },
     {
@@ -1547,30 +1583,12 @@
       "season": null
     },
     {
-      "pitcher_id": 656849,
-      "pitcher_name": "David Peterson",
-      "starts": 16,
-      "sum_wp": 7.302920043632648,
-      "avg_wp": 0.4564325027270405,
-      "waa": -0.6166048939015636,
-      "season": null
-    },
-    {
-      "pitcher_id": 476594,
-      "pitcher_name": "Robert Stock",
-      "starts": 4,
-      "sum_wp": 1.7120779558940251,
-      "avg_wp": 0.4280194889735063,
-      "waa": -0.2678032784895277,
-      "season": null
-    },
-    {
-      "pitcher_id": 702281,
-      "pitcher_name": "Robby Snelling",
-      "starts": 1,
-      "sum_wp": 0.4376212744391659,
-      "avg_wp": 0.4376212744391659,
-      "waa": -0.05734903415672232,
+      "pitcher_id": 687570,
+      "pitcher_name": "Connor Prielipp",
+      "starts": 18,
+      "sum_wp": 7.676267142712942,
+      "avg_wp": 0.42645928570627456,
+      "waa": -1.2331984120130457,
       "season": null
     },
     {
@@ -1583,75 +1601,12 @@
       "season": null
     },
     {
-      "pitcher_id": 687570,
-      "pitcher_name": "Connor Prielipp",
-      "starts": 18,
-      "sum_wp": 7.676267142712942,
-      "avg_wp": 0.42645928570627456,
-      "waa": -1.2331984120130457,
-      "season": null
-    },
-    {
-      "pitcher_id": 518876,
-      "pitcher_name": "Merrill Kelly",
-      "starts": 23,
-      "sum_wp": 10.469082510432447,
-      "avg_wp": 0.4551775004535846,
-      "waa": -0.9152345872729808,
-      "season": null
-    },
-    {
-      "pitcher_id": 675911,
-      "pitcher_name": "Spencer Strider",
-      "starts": 8,
-      "sum_wp": 3.701636789281315,
-      "avg_wp": 0.4627045986601644,
-      "waa": -0.25812567948579,
-      "season": null
-    },
-    {
-      "pitcher_id": 679883,
-      "pitcher_name": "Luinder Avila",
-      "starts": 12,
-      "sum_wp": 5.262681679271309,
-      "avg_wp": 0.43855680660594243,
-      "waa": -0.6769620238793492,
-      "season": null
-    },
-    {
-      "pitcher_id": 665152,
-      "pitcher_name": "Dean Kremer",
-      "starts": 10,
-      "sum_wp": 4.421616684687554,
-      "avg_wp": 0.4421616684687554,
-      "waa": -0.5280864012713272,
-      "season": null
-    },
-    {
-      "pitcher_id": 579328,
-      "pitcher_name": "Yusei Kikuchi",
-      "starts": 7,
-      "sum_wp": 2.7190629199465666,
-      "avg_wp": 0.3884375599923667,
-      "waa": -0.7457292402246507,
-      "season": null
-    },
-    {
-      "pitcher_id": 703615,
-      "pitcher_name": "Jose Cabrera",
+      "pitcher_id": 476594,
+      "pitcher_name": "Robert Stock",
       "starts": 4,
-      "sum_wp": 1.608570492701544,
-      "avg_wp": 0.402142623175386,
-      "waa": -0.3713107416820084,
-      "season": null
-    },
-    {
-      "pitcher_id": 663623,
-      "pitcher_name": "Jake Irvin",
-      "starts": 15,
-      "sum_wp": 6.228523191954567,
-      "avg_wp": 0.4152348794636378,
-      "waa": -1.196031436983757,
+      "sum_wp": 1.7120779558940251,
+      "avg_wp": 0.4280194889735063,
+      "waa": -0.2678032784895277,
       "season": null
     },
     {
@@ -1664,15 +1619,6 @@
       "season": null
     },
     {
-      "pitcher_id": 592791,
-      "pitcher_name": "Jameson Taillon",
-      "starts": 17,
-      "sum_wp": 6.772136329887945,
-      "avg_wp": 0.39836096058164383,
-      "waa": -1.6423589162421532,
-      "season": null
-    },
-    {
       "pitcher_id": 665795,
       "pitcher_name": "Edward Cabrera",
       "starts": 15,
@@ -1682,30 +1628,39 @@
       "season": null
     },
     {
-      "pitcher_id": 682227,
-      "pitcher_name": "Brandon Williamson",
-      "starts": 6,
-      "sum_wp": 2.354712697706207,
-      "avg_wp": 0.3924521162843679,
-      "waa": -0.615109153869122,
+      "pitcher_id": 702281,
+      "pitcher_name": "Robby Snelling",
+      "starts": 1,
+      "sum_wp": 0.4376212744391659,
+      "avg_wp": 0.4376212744391659,
+      "waa": -0.05734903415672232,
       "season": null
     },
     {
-      "pitcher_id": 680573,
-      "pitcher_name": "Simeon Woods Richardson",
-      "starts": 10,
-      "sum_wp": 2.974319643698567,
-      "avg_wp": 0.2974319643698567,
-      "waa": -1.9753834422603154,
+      "pitcher_id": 579328,
+      "pitcher_name": "Yusei Kikuchi",
+      "starts": 7,
+      "sum_wp": 2.7190629199465666,
+      "avg_wp": 0.3884375599923667,
+      "waa": -0.7457292402246507,
       "season": null
     },
     {
-      "pitcher_id": 681347,
-      "pitcher_name": "Mike Burrows",
+      "pitcher_id": 592791,
+      "pitcher_name": "Jameson Taillon",
       "starts": 17,
-      "sum_wp": 6.679395715192755,
-      "avg_wp": 0.39290563030545617,
-      "waa": -1.7350995309373434,
+      "sum_wp": 6.772136329887945,
+      "avg_wp": 0.39836096058164383,
+      "waa": -1.6423589162421532,
+      "season": null
+    },
+    {
+      "pitcher_id": 663623,
+      "pitcher_name": "Jake Irvin",
+      "starts": 15,
+      "sum_wp": 6.228523191954567,
+      "avg_wp": 0.4152348794636378,
+      "waa": -1.196031436983757,
       "season": null
     },
     {
@@ -1718,12 +1673,12 @@
       "season": null
     },
     {
-      "pitcher_id": 686799,
-      "pitcher_name": "Jack Kochanowicz",
-      "starts": 13,
-      "sum_wp": 5.395105177703592,
-      "avg_wp": 0.41500809059258403,
-      "waa": -1.0395088340429552,
+      "pitcher_id": 703615,
+      "pitcher_name": "Jose Cabrera",
+      "starts": 4,
+      "sum_wp": 1.608570492701544,
+      "avg_wp": 0.402142623175386,
+      "waa": -0.3713107416820084,
       "season": null
     },
     {
@@ -1736,30 +1691,21 @@
       "season": null
     },
     {
-      "pitcher_id": 700363,
-      "pitcher_name": "AJ Smith-Shawver",
-      "starts": 2,
-      "sum_wp": 0.5919310612456571,
-      "avg_wp": 0.29596553062282854,
-      "waa": -0.39800955594611925,
+      "pitcher_id": 681347,
+      "pitcher_name": "Mike Burrows",
+      "starts": 17,
+      "sum_wp": 6.679395715192755,
+      "avg_wp": 0.39290563030545617,
+      "waa": -1.7350995309373434,
       "season": null
     },
     {
-      "pitcher_id": 605488,
-      "pitcher_name": "Jeffrey Springs",
-      "starts": 23,
-      "sum_wp": 9.341199467793283,
-      "avg_wp": 0.4061391072953601,
-      "waa": -2.0431176299121434,
-      "season": null
-    },
-    {
-      "pitcher_id": 702273,
-      "pitcher_name": "Noah Schultz",
-      "starts": 14,
-      "sum_wp": 5.360030015960718,
-      "avg_wp": 0.382859286854337,
-      "waa": -1.569554304381718,
+      "pitcher_id": 679883,
+      "pitcher_name": "Luinder Avila",
+      "starts": 12,
+      "sum_wp": 5.262681679271309,
+      "avg_wp": 0.43855680660594243,
+      "waa": -0.6769620238793492,
       "season": null
     },
     {
@@ -1772,30 +1718,39 @@
       "season": null
     },
     {
-      "pitcher_id": 676979,
-      "pitcher_name": "Garrett Crochet",
+      "pitcher_id": 682227,
+      "pitcher_name": "Brandon Williamson",
       "starts": 6,
-      "sum_wp": 2.9018383445083846,
-      "avg_wp": 0.48363972408473077,
-      "waa": -0.06798350706694478,
+      "sum_wp": 2.354712697706207,
+      "avg_wp": 0.3924521162843679,
+      "waa": -0.615109153869122,
       "season": null
     },
     {
-      "pitcher_id": 680570,
-      "pitcher_name": "Grayson Rodriguez",
+      "pitcher_id": 605488,
+      "pitcher_name": "Jeffrey Springs",
+      "starts": 23,
+      "sum_wp": 9.341199467793283,
+      "avg_wp": 0.4061391072953601,
+      "waa": -2.0431176299121434,
+      "season": null
+    },
+    {
+      "pitcher_id": 680573,
+      "pitcher_name": "Simeon Woods Richardson",
+      "starts": 10,
+      "sum_wp": 2.974319643698567,
+      "avg_wp": 0.2974319643698567,
+      "waa": -1.9753834422603154,
+      "season": null
+    },
+    {
+      "pitcher_id": 702273,
+      "pitcher_name": "Noah Schultz",
       "starts": 14,
-      "sum_wp": 5.43725319019235,
-      "avg_wp": 0.38837522787088213,
-      "waa": -1.4923311301500854,
-      "season": null
-    },
-    {
-      "pitcher_id": 700842,
-      "pitcher_name": "Eduardo Rivera",
-      "starts": 3,
-      "sum_wp": 0.9809314084041749,
-      "avg_wp": 0.32697713613472495,
-      "waa": -0.5039795173834897,
+      "sum_wp": 5.360030015960718,
+      "avg_wp": 0.382859286854337,
+      "waa": -1.569554304381718,
       "season": null
     },
     {
@@ -1808,102 +1763,39 @@
       "season": null
     },
     {
+      "pitcher_id": 700363,
+      "pitcher_name": "AJ Smith-Shawver",
+      "starts": 2,
+      "sum_wp": 0.5919310612456571,
+      "avg_wp": 0.29596553062282854,
+      "waa": -0.39800955594611925,
+      "season": null
+    },
+    {
+      "pitcher_id": 686799,
+      "pitcher_name": "Jack Kochanowicz",
+      "starts": 13,
+      "sum_wp": 5.395105177703592,
+      "avg_wp": 0.41500809059258403,
+      "waa": -1.0395088340429552,
+      "season": null
+    },
+    {
+      "pitcher_id": 676979,
+      "pitcher_name": "Garrett Crochet",
+      "starts": 6,
+      "sum_wp": 2.9018383445083846,
+      "avg_wp": 0.48363972408473077,
+      "waa": -0.06798350706694478,
+      "season": null
+    },
+    {
       "pitcher_id": 668678,
       "pitcher_name": "Zac Gallen",
       "starts": 19,
       "sum_wp": 7.224402034609623,
       "avg_wp": 0.3802316860320854,
       "waa": -2.1800338287122543,
-      "season": null
-    },
-    {
-      "pitcher_id": 687312,
-      "pitcher_name": "Gabriel Hughes",
-      "starts": 7,
-      "sum_wp": 2.5712458940328053,
-      "avg_wp": 0.36732084200468645,
-      "waa": -0.8935462661384119,
-      "season": null
-    },
-    {
-      "pitcher_id": 696270,
-      "pitcher_name": "Ryan Johnson",
-      "starts": 12,
-      "sum_wp": 5.021729419518705,
-      "avg_wp": 0.41847745162655875,
-      "waa": -0.917914283631954,
-      "season": null
-    },
-    {
-      "pitcher_id": 656288,
-      "pitcher_name": "Griffin Canning",
-      "starts": 11,
-      "sum_wp": 4.02189151254884,
-      "avg_wp": 0.36562650114080364,
-      "waa": -1.4227818820059297,
-      "season": null
-    },
-    {
-      "pitcher_id": 621121,
-      "pitcher_name": "Lance McCullers Jr.",
-      "starts": 8,
-      "sum_wp": 2.8881059945393064,
-      "avg_wp": 0.3610132493174133,
-      "waa": -1.0716564742277996,
-      "season": null
-    },
-    {
-      "pitcher_id": 663978,
-      "pitcher_name": "Chris Paddack",
-      "starts": 9,
-      "sum_wp": 2.9745850525372832,
-      "avg_wp": 0.33050945028192036,
-      "waa": -1.4801477248257104,
-      "season": null
-    },
-    {
-      "pitcher_id": 689818,
-      "pitcher_name": "David Sandlin",
-      "starts": 3,
-      "sum_wp": 1.5022762821755555,
-      "avg_wp": 0.5007587607251852,
-      "waa": 0.01736535638789105,
-      "season": null
-    },
-    {
-      "pitcher_id": 668881,
-      "pitcher_name": "Hunter Greene",
-      "starts": 5,
-      "sum_wp": 1.9404600228335158,
-      "avg_wp": 0.3880920045667032,
-      "waa": -0.5343915201459251,
-      "season": null
-    },
-    {
-      "pitcher_id": 664299,
-      "pitcher_name": "Cristian Javier",
-      "starts": 7,
-      "sum_wp": 2.0822037425154623,
-      "avg_wp": 0.2974576775022089,
-      "waa": -1.3825884176557548,
-      "season": null
-    },
-    {
-      "pitcher_id": 694346,
-      "pitcher_name": "Trey Gibson",
-      "starts": 7,
-      "sum_wp": 2.2980988942765457,
-      "avg_wp": 0.3282998420395065,
-      "waa": -1.1666932658946718,
-      "season": null
-    },
-    {
-      "pitcher_id": 687931,
-      "pitcher_name": "Carson Whisenhunt",
-      "starts": 7,
-      "sum_wp": 2.609807397556594,
-      "avg_wp": 0.37282962822237053,
-      "waa": -0.8549847626146232,
       "season": null
     },
     {
@@ -1916,30 +1808,84 @@
       "season": null
     },
     {
-      "pitcher_id": 669854,
-      "pitcher_name": "Ronel Blanco",
-      "starts": 4,
-      "sum_wp": 1.0666866373474466,
-      "avg_wp": 0.26667165933686166,
-      "waa": -0.9131945970361064,
+      "pitcher_id": 696270,
+      "pitcher_name": "Ryan Johnson",
+      "starts": 12,
+      "sum_wp": 5.021729419518705,
+      "avg_wp": 0.41847745162655875,
+      "waa": -0.917914283631954,
       "season": null
     },
     {
-      "pitcher_id": 694462,
-      "pitcher_name": "Hurston Waldrep",
-      "starts": 2,
-      "sum_wp": 0.5475655215853774,
-      "avg_wp": 0.2737827607926887,
-      "waa": -0.4423750956063989,
+      "pitcher_id": 700842,
+      "pitcher_name": "Eduardo Rivera",
+      "starts": 3,
+      "sum_wp": 0.9809314084041749,
+      "avg_wp": 0.32697713613472495,
+      "waa": -0.5039795173834897,
       "season": null
     },
     {
-      "pitcher_id": 547179,
-      "pitcher_name": "Michael Lorenzen",
-      "starts": 25,
-      "sum_wp": 9.178570689092792,
-      "avg_wp": 0.3671428275637117,
-      "waa": -3.195687025804414,
+      "pitcher_id": 680570,
+      "pitcher_name": "Grayson Rodriguez",
+      "starts": 14,
+      "sum_wp": 5.43725319019235,
+      "avg_wp": 0.38837522787088213,
+      "waa": -1.4923311301500854,
+      "season": null
+    },
+    {
+      "pitcher_id": 656288,
+      "pitcher_name": "Griffin Canning",
+      "starts": 11,
+      "sum_wp": 4.02189151254884,
+      "avg_wp": 0.36562650114080364,
+      "waa": -1.4227818820059297,
+      "season": null
+    },
+    {
+      "pitcher_id": 689818,
+      "pitcher_name": "David Sandlin",
+      "starts": 3,
+      "sum_wp": 1.5022762821755555,
+      "avg_wp": 0.5007587607251852,
+      "waa": 0.01736535638789105,
+      "season": null
+    },
+    {
+      "pitcher_id": 663978,
+      "pitcher_name": "Chris Paddack",
+      "starts": 9,
+      "sum_wp": 2.9745850525372832,
+      "avg_wp": 0.33050945028192036,
+      "waa": -1.4801477248257104,
+      "season": null
+    },
+    {
+      "pitcher_id": 687931,
+      "pitcher_name": "Carson Whisenhunt",
+      "starts": 7,
+      "sum_wp": 2.609807397556594,
+      "avg_wp": 0.37282962822237053,
+      "waa": -0.8549847626146232,
+      "season": null
+    },
+    {
+      "pitcher_id": 687312,
+      "pitcher_name": "Gabriel Hughes",
+      "starts": 7,
+      "sum_wp": 2.5712458940328053,
+      "avg_wp": 0.36732084200468645,
+      "waa": -0.8935462661384119,
+      "season": null
+    },
+    {
+      "pitcher_id": 621121,
+      "pitcher_name": "Lance McCullers Jr.",
+      "starts": 8,
+      "sum_wp": 2.8881059945393064,
+      "avg_wp": 0.3610132493174133,
+      "waa": -1.0716564742277996,
       "season": null
     },
     {
@@ -1952,30 +1898,30 @@
       "season": null
     },
     {
-      "pitcher_id": 683155,
-      "pitcher_name": "Joey Estes",
-      "starts": 1,
-      "sum_wp": 0.22684867320408117,
-      "avg_wp": 0.22684867320408117,
-      "waa": -0.268121635391807,
+      "pitcher_id": 664299,
+      "pitcher_name": "Cristian Javier",
+      "starts": 7,
+      "sum_wp": 2.0822037425154623,
+      "avg_wp": 0.2974576775022089,
+      "waa": -1.3825884176557548,
       "season": null
     },
     {
-      "pitcher_id": 694341,
-      "pitcher_name": "Brendan Beck",
-      "starts": 1,
-      "sum_wp": 0.1581288362013813,
-      "avg_wp": 0.1581288362013813,
-      "waa": -0.3368414723945069,
+      "pitcher_id": 669854,
+      "pitcher_name": "Ronel Blanco",
+      "starts": 4,
+      "sum_wp": 1.0666866373474466,
+      "avg_wp": 0.26667165933686166,
+      "waa": -0.9131945970361064,
       "season": null
     },
     {
-      "pitcher_id": 807743,
-      "pitcher_name": "Sean Sullivan",
+      "pitcher_id": 668881,
+      "pitcher_name": "Hunter Greene",
       "starts": 5,
-      "sum_wp": 1.3883606226083964,
-      "avg_wp": 0.2776721245216793,
-      "waa": -1.0864909203710447,
+      "sum_wp": 1.9404600228335158,
+      "avg_wp": 0.3880920045667032,
+      "waa": -0.5343915201459251,
       "season": null
     },
     {
@@ -1988,12 +1934,30 @@
       "season": null
     },
     {
-      "pitcher_id": 800600,
-      "pitcher_name": "Jackson Kent",
-      "starts": 2,
-      "sum_wp": 0.44048432931288334,
-      "avg_wp": 0.22024216465644167,
-      "waa": -0.5494562878788931,
+      "pitcher_id": 547179,
+      "pitcher_name": "Michael Lorenzen",
+      "starts": 25,
+      "sum_wp": 9.178570689092792,
+      "avg_wp": 0.3671428275637117,
+      "waa": -3.195687025804414,
+      "season": null
+    },
+    {
+      "pitcher_id": 694346,
+      "pitcher_name": "Trey Gibson",
+      "starts": 7,
+      "sum_wp": 2.2980988942765457,
+      "avg_wp": 0.3282998420395065,
+      "waa": -1.1666932658946718,
+      "season": null
+    },
+    {
+      "pitcher_id": 807743,
+      "pitcher_name": "Sean Sullivan",
+      "starts": 5,
+      "sum_wp": 1.3883606226083964,
+      "avg_wp": 0.2776721245216793,
+      "waa": -1.0864909203710447,
       "season": null
     },
     {
@@ -2006,12 +1970,48 @@
       "season": null
     },
     {
+      "pitcher_id": 434378,
+      "pitcher_name": "Justin Verlander",
+      "starts": 1,
+      "sum_wp": 0.1581288362013813,
+      "avg_wp": 0.1581288362013813,
+      "waa": -0.3368414723945069,
+      "season": null
+    },
+    {
+      "pitcher_id": 694341,
+      "pitcher_name": "Brendan Beck",
+      "starts": 1,
+      "sum_wp": 0.1581288362013813,
+      "avg_wp": 0.1581288362013813,
+      "waa": -0.3368414723945069,
+      "season": null
+    },
+    {
+      "pitcher_id": 683155,
+      "pitcher_name": "Joey Estes",
+      "starts": 1,
+      "sum_wp": 0.22684867320408117,
+      "avg_wp": 0.22684867320408117,
+      "waa": -0.268121635391807,
+      "season": null
+    },
+    {
       "pitcher_id": 592836,
       "pitcher_name": "Taijuan Walker",
       "starts": 4,
       "sum_wp": 1.0916587566306193,
       "avg_wp": 0.2729146891576548,
       "waa": -0.8882224777529337,
+      "season": null
+    },
+    {
+      "pitcher_id": 800600,
+      "pitcher_name": "Jackson Kent",
+      "starts": 2,
+      "sum_wp": 0.44048432931288334,
+      "avg_wp": 0.22024216465644167,
+      "waa": -0.5494562878788931,
       "season": null
     },
     {
@@ -2024,6 +2024,15 @@
       "season": null
     },
     {
+      "pitcher_id": 666129,
+      "pitcher_name": "Braxton Garrett",
+      "starts": 2,
+      "sum_wp": 0.5019468609883392,
+      "avg_wp": 0.2509734304941696,
+      "waa": -0.4879937562034372,
+      "season": null
+    },
+    {
       "pitcher_id": 669920,
       "pitcher_name": "Jason Alexander",
       "starts": 2,
@@ -2033,21 +2042,12 @@
       "season": null
     },
     {
-      "pitcher_id": 434378,
-      "pitcher_name": "Justin Verlander",
-      "starts": 1,
-      "sum_wp": 0.1581288362013813,
-      "avg_wp": 0.1581288362013813,
-      "waa": -0.3368414723945069,
-      "season": null
-    },
-    {
-      "pitcher_id": 666129,
-      "pitcher_name": "Braxton Garrett",
+      "pitcher_id": 694462,
+      "pitcher_name": "Hurston Waldrep",
       "starts": 2,
-      "sum_wp": 0.5019468609883392,
-      "avg_wp": 0.2509734304941696,
-      "waa": -0.4879937562034372,
+      "sum_wp": 0.5475655215853774,
+      "avg_wp": 0.2737827607926887,
+      "waa": -0.4423750956063989,
       "season": null
     }
   ],

@@ -98,12 +98,20 @@ def main(
     if team_id is not None:
         logging.info(f"Resolved --team '{team}' -> id={team_id} name='{team_name}'")
 
+    # A pooled (non-by-season) report judges each pitcher's role over the whole --years span, not
+    # season by season, so a career reliever who cleared the ratio in a single rookie season isn't
+    # pulled into the pool on that season's strength alone. A --by-season report scores each season
+    # independently anyway, so its pool is qualified the same way, one season at a time.
+    if pitcher_id is not None:
+        season_pools = {season: [pitcher_id] for season in years}
+    elif by_season:
+        season_pools = {season: SeasonPitchingAPI.GetQualifiedStarters(season, min_start_ratio) for season in years}
+    else:
+        season_pools = SeasonPitchingAPI.GetQualifiedStartersAcrossSeasons(years, min_start_ratio)
+
     all_starts: list[Start] = []
     for season in years:
-        if pitcher_id is not None:
-            pitcher_ids = [pitcher_id]
-        else:
-            pitcher_ids = SeasonPitchingAPI.GetQualifiedStarters(season, min_start_ratio)
+        pitcher_ids = season_pools[season]
         logging.info(f"season={season}: evaluating {len(pitcher_ids)} pitcher(s)")
         all_starts.extend(_FetchStarts(pitcher_ids, season, matrix.min_start_outs, max_threads))
 

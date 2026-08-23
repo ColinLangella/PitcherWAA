@@ -26,7 +26,10 @@ def _FetchSeasonStarts(season: int, min_start_outs: int, max_threads: int) -> tu
     `season_excluded` are never touched from more than one thread at a time."""
     import concurrent.futures
 
-    pitcher_ids = SeasonPitchingAPI.GetQualifiedStarters(season)
+    # min_start_ratio=0: the matrix buckets every start in the league regardless of who threw it,
+    # so a reliever's one spot start belongs in the matrix same as any starter's -- the starter-role
+    # ratio filter is a CalculateValue.py pitcher-pool concept, not a matrix-input concept.
+    pitcher_ids = SeasonPitchingAPI.GetQualifiedStarters(season, min_start_ratio=0)
     logging.info(f"season={season}: fetching game logs for {len(pitcher_ids)} pitchers (max_threads={max_threads})")
 
     season_starts:   list[Start] = []
