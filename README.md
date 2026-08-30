@@ -84,16 +84,34 @@ warm rerun is near-instant.
 
 ### Sample output (`matrix_2024_a0.10.txt`, truncated)
 
+The `.txt` renders four human-readable matrices over the same `(outs, ER)`
+grid, each with a short explanation of what it shows: `Smoothed WP` (the
+final value `CalculateValue.py` uses), `Raw WP` (unadjusted empirical value,
+`n/a` where zero starts landed), `Shrunk WP` (post-shrinkage, pre-isotonic),
+and `Counts` (the raw `W|ND_won|ND_lost|L` tally behind each cell).
+
 ```
 Matrix years=2024-2024 alpha=0.10 baseline=0.488 replacement_baseline=0.399 replacement_min_start_ratio=0.50 total_starts=4827
+
+Smoothed WP
+The final win probability used by CalculateValue.py, after both sample-size shrinkage
+and 2D isotonic smoothing. '*' marks cells with zero observed starts, filled in purely
+from the monotonic fit.
           ER=0   ER=1   ER=2   ER=3   ER=4   ER=5   ER=6   ER=7   ER=8   ER=9+
 Outs=0     0.488* 0.422* 0.420* 0.351* 0.290* 0.262* 0.262* 0.262* 0.262* 0.262*
 ...
-Outs=18    0.796  0.690  0.569  0.459  0.291  0.291  0.291  0.290  0.290  0.290*
-...
 Outs=27+   0.835  0.737  0.652  0.538  0.488* 0.488* 0.488* 0.488* 0.488* 0.488*
 
+Raw WP (empirical, pre-shrinkage)
+...
+
+Shrunk WP (post-shrinkage, pre-isotonic)
+...
+
 * = interpolated (n=0; value comes purely from the monotonic fit)
+
+Counts (W|ND_won|ND_lost|L)
+...
 ```
 
 Rows are outs recorded (0-27, with `27+` absorbing extra-inning complete
